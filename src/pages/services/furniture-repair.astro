@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+---
+<BaseLayout
+  title="Furniture Repair & Polishing in Indore | VS Furnitures"
+  description="Furniture repair, polishing, and restoration in Indore. Same-day repair available. 10% off your first repair. VS Furnitures — 30+ years. Call 9827348796."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Furniture Repair &amp; Polishing in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Broken hinge, worn polish, damaged joint? We fix it — often same day. <strong>10% off your first repair.</strong></p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Same-Day Repair</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20furniture%20repair%20in%20Indore.%20Can%20you%20help%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp a Photo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What We Fix</p>
+      <h2>Repair & restoration services</h2>
+      <div class="gold-line"></div>
+      <div class="grid-3">
+        {[
+          { icon: '🔩', title: 'Hardware Repair', desc: 'Hinges, handles, soft-close channels, drawer slides — replaced or adjusted.' },
+          { icon: '🎨', title: 'Polish & Refinish', desc: 'PU polish, NC polish, wax finish — bring old furniture back to life.' },
+          { icon: '🪵', title: 'Structural Repairs', desc: 'Broken joints, delaminated ply, swollen doors — we fix the structure properly.' },
+          { icon: '✂️', title: 'Laminate Replacement', desc: 'Peeling or damaged laminate replaced — matched to existing finish where possible.' },
+          { icon: '🛏️', title: 'Bed & Frame Repairs', desc: 'Squeaky beds, broken slats, loose frames — tightened and repaired.' },
+          { icon: '🔄', title: 'Old Furniture Restoration', desc: 'Antique and old wooden pieces revived — cleaned, repaired, and re-polished.' },
+        ].map(item => (
+          <div class="repair-card reveal">
+            <span class="repair-icon" role="img" aria-hidden="true">{item.icon}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm offer-banner">
+    <div class="container offer-inner">
+      <div class="offer-badge">Special Offer</div>
+      <h2>10% Off Your First Repair</h2>
+      <p>New to VS Furnitures? Get 10% off on your first furniture repair or polishing job. Call or WhatsApp to book.</p>
+      <a href="tel:+919827348796" class="btn btn-gold mt">Call 9827348796</a>
+    </div>
+  </section>
+
+  <CTABand heading="Furniture looking tired? We can fix it." sub="Same-day repair available. Call or WhatsApp with a photo and we'll give you a quick estimate." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 2rem; }
+.page-hero-sub strong { color: var(--gold-soft); }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.repair-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.repair-icon { font-size: 1.8rem; display: block; margin-bottom: 0.75rem; }
+.repair-card h3 { font-size: 0.95rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.repair-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.offer-banner { background: var(--navy); text-align: center; }
+.offer-inner { max-width: 560px; margin: 0 auto; }
+.offer-badge { display: inline-block; background: var(--gold); color: var(--navy-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 3px; margin-bottom: 1rem; }
+.offer-inner h2 { color: var(--white); margin-bottom: 0.75rem; }
+.offer-inner p { color: rgba(255,255,255,0.7); }
+.mt { margin-top: 1.5rem; }
+</style>

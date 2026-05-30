@@ -1,0 +1,152 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import MobileBar from '../components/MobileBar.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const { title, description, ogImage = '/images/og-default.jpg', canonical } = Astro.props;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "FurnitureStore",
+  "name": "VS Furnitures",
+  "url": "https://vsfurnitures.in",
+  "telephone": "+919827348796",
+  "priceRange": "₹₹",
+  "image": "https://vsfurnitures.in/images/og-default.jpg",
+  "description": "VS Furnitures — furniture contractor & custom carpentry serving all of Indore for 30+ years. Modular kitchens, wardrobes, furniture repair, and complete home interiors.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Indore",
+    "addressRegion": "Madhya Pradesh",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    "Vijay Nagar", "Palasia", "Rau", "Bicholi", "Sudama Nagar",
+    "Annapurna", "Bhawarkua", "Nanda Nagar", "MR-10", "Scheme 54",
+    "Old Palasia", "AB Road", "Indore"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "1-Year Written Warranty on all work"
+    },
+    {
+      "@type": "Offer",
+      "name": "Free site visit within 7 km"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you charge for a site visit?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No — site visits and inspections within 7 km are completely free." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas of Indore do you cover?",
+      "acceptedAnswer": { "@type": "Answer", "text": "All of Indore — Vijay Nagar, Palasia, Rau, Sudama Nagar, Annapurna, Nanda Nagar, Bhawarkua, Bicholi, MR-10, Scheme 54, AB Road and more." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you have a showroom?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We work on-site across Indore. Just call or WhatsApp and we'll visit you for a free measurement." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between With Material and Percentage Basis?",
+      "acceptedAnswer": { "@type": "Answer", "text": "With Material, we supply everything; on Percentage Basis, you arrange the material and we do the craftsmanship. Final pricing is discussed on a call or visit." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer any warranty?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — a 1-year written warranty on our work." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a project take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most furniture pieces take 7–15 days; full modular kitchens or wardrobes around 3–4 weeks." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle small repairs and polishing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — repairs, polishing, restoration, and modifications. First repair gets 10% off." }
+    }
+  ]
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102542" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="VS Furnitures" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppButton />
+    <MobileBar />
+
+    <script>
+      document.body.classList.add('js-reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>

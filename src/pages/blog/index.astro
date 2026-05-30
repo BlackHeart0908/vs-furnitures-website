@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<BaseLayout
+  title="Furniture & Carpentry Tips for Indore Homes | VS Furnitures Blog"
+  description="Expert advice on modular kitchens, wardrobes, furniture repair, and home interiors from VS Furnitures — Indore's trusted carpenter with 30+ years of experience."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Blog</p>
+      <h1>Tips & Guides for Indore Homes</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Practical advice on modular kitchens, wardrobes, furniture care, and interior decisions — from a family that's been doing this for 30+ years.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="posts-grid">
+        {posts.map(post => (
+          <a href={`/blog/${post.id}`} class="post-card reveal">
+            <div class="post-meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {post.data.tags?.slice(0,2).map(tag => <span class="post-tag">{tag}</span>)}
+            </div>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <span class="post-link">Read article →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Have a project in mind?" sub="Don't wait — call or WhatsApp for a free site visit anywhere in Indore." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; }
+.posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.post-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 2rem; text-decoration: none; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; gap: 0.5rem; }
+.post-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.post-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.post-meta time { font-size: 0.78rem; color: var(--muted); }
+.post-tag { background: rgba(194,162,74,0.12); color: var(--gold); font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 3px; }
+.post-card h2 { font-size: 1.15rem; color: var(--navy); line-height: 1.3; }
+.post-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; flex: 1; }
+.post-link { font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-top: 0.5rem; }
+@media (max-width: 700px) { .posts-grid { grid-template-columns: 1fr; } }
+</style>

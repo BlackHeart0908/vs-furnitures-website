@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const services = [
+  {
+    icon: '🍳',
+    name: 'Modular Kitchen',
+    desc: 'Soft-close cabinets, durable materials, designed for your exact space. L-shaped, U-shaped, straight layouts.',
+    href: '/services/modular-kitchen',
+  },
+  {
+    icon: '🛏️',
+    name: 'Wardrobes & Bedroom',
+    desc: 'Sliding wardrobes, hinged wardrobes, beds, dressing tables, bedside units — all custom-built.',
+    href: '/services/wardrobes-bedroom',
+  },
+  {
+    icon: '🛋️',
+    name: 'Living Room Furniture',
+    desc: 'TV units, entertainment centres, sofas, display shelving — built to your living room dimensions.',
+    href: '/services',
+  },
+  {
+    icon: '💼',
+    name: 'Office Furniture',
+    desc: 'Workstations, executive desks, reception counters, storage cabinets for homes and commercial offices.',
+    href: '/services',
+  },
+  {
+    icon: '🚪',
+    name: 'Door & Window Frames',
+    desc: 'Solid wood and engineered frames — measured, crafted, and fitted for durability.',
+    href: '/services',
+  },
+  {
+    icon: '✨',
+    name: 'False Ceiling & Wood Paneling',
+    desc: 'POP, gypsum, and wood panel ceilings and wall features that transform the look of a room.',
+    href: '/services',
+  },
+  {
+    icon: '🔧',
+    name: 'Furniture Repair & Polishing',
+    desc: 'Hinges, joints, polishing, laminate replacement — we fix and restore. First repair gets 10% off.',
+    href: '/services/furniture-repair',
+  },
+  {
+    icon: '🪵',
+    name: 'Custom Carpentry',
+    desc: 'Anything in wood — from a single shelf to a built-in bookcase. If you can imagine it, we can build it.',
+    href: '/services',
+  },
+  {
+    icon: '📦',
+    name: 'Furniture Assembly & Dismantling',
+    desc: 'Safe flatpack assembly, dismantling for shifting, and refitting in your new home.',
+    href: '/services',
+  },
+  {
+    icon: '🏺',
+    name: 'Old Furniture Restoration',
+    desc: 'Re-polish, repair, and revive treasured old pieces — often cheaper than buying new.',
+    href: '/services/furniture-repair',
+  },
+];
+---
+<BaseLayout
+  title="Furniture & Carpentry Services in Indore | VS Furnitures"
+  description="Modular kitchens, wardrobes, living room furniture, office furniture, repairs & custom carpentry in Indore. VS Furnitures — 30+ years. Free site visit within 7 km."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">What We Offer</p>
+      <h1>Furniture & Carpentry Services in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">From a single repair to a complete home fit-out — VS Furnitures handles it all. 30+ years of craftsmanship across Indore.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-full-grid">
+        {services.map(s => (
+          <a href={s.href} class="service-full-card reveal">
+            <span class="sfc-icon" role="img" aria-hidden="true">{s.icon}</span>
+            <div class="sfc-body">
+              <h2>{s.name}</h2>
+              <p>{s.desc}</p>
+              <span class="sfc-link">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+.page-hero {
+  background: var(--navy-deep);
+  padding: 96px 0 64px;
+  text-align: center;
+}
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { justify-content: center; display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; font-size: 1.05rem; }
+
+.services-full-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.service-full-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid rgba(16,37,66,0.08);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: var(--shadow);
+}
+.service-full-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+.sfc-icon { font-size: 2.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.sfc-body h2 { font-size: 1.1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.sfc-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.75rem; }
+.sfc-link { font-size: 0.82rem; font-weight: 700; color: var(--gold); }
+
+@media (max-width: 700px) { .services-full-grid { grid-template-columns: 1fr; } }
+</style>

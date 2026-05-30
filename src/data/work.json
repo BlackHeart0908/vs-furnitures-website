@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Modular Kitchen — Vijay Nagar",
+    "category": "Modular Kitchens",
+    "image": "/images/work/kitchen-1.jpg",
+    "alt": "Modular kitchen with white shutters and gold handles built by VS Furnitures in Vijay Nagar Indore"
+  },
+  {
+    "id": 2,
+    "title": "L-Shaped Kitchen — Palasia",
+    "category": "Modular Kitchens",
+    "image": "/images/work/kitchen-2.jpg",
+    "alt": "L-shaped modular kitchen with granite countertop, Palasia Indore"
+  },
+  {
+    "id": 3,
+    "title": "Sliding Wardrobe — Scheme 54",
+    "category": "Wardrobes",
+    "image": "/images/work/wardrobe-1.jpg",
+    "alt": "Floor-to-ceiling sliding wardrobe built by VS Furnitures in Scheme 54 Indore"
+  },
+  {
+    "id": 4,
+    "title": "Bedroom Set — Rau",
+    "category": "Wardrobes",
+    "image": "/images/work/wardrobe-2.jpg",
+    "alt": "Complete bedroom furniture set with wardrobe and dressing table in Rau Indore"
+  },
+  {
+    "id": 5,
+    "title": "TV Unit & Shelving — Sudama Nagar",
+    "category": "Living Room",
+    "image": "/images/work/living-1.jpg",
+    "alt": "Custom TV unit with open shelving in living room, Sudama Nagar Indore"
+  },
+  {
+    "id": 6,
+    "title": "Office Workstations — AB Road",
+    "category": "Office",
+    "image": "/images/work/office-1.jpg",
+    "alt": "Custom office workstations and reception counter built by VS Furnitures on AB Road Indore"
+  },
+  {
+    "id": 7,
+    "title": "Furniture Restoration — Annapurna",
+    "category": "Repairs",
+    "image": "/images/work/repair-1.jpg",
+    "alt": "Before and after furniture polishing and restoration in Annapurna Indore"
+  },
+  {
+    "id": 8,
+    "title": "U-Shaped Kitchen — Nanda Nagar",
+    "category": "Modular Kitchens",
+    "image": "/images/work/kitchen-3.jpg",
+    "alt": "U-shaped modular kitchen with loft units in Nanda Nagar Indore"
+  }
+]

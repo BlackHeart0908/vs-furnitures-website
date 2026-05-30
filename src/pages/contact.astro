@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const areas = ['Vijay Nagar','Palasia','Rau','Bicholi','Sudama Nagar','Annapurna','Bhawarkua','Nanda Nagar','MR-10','Scheme 54','Old Palasia','AB Road'];
+
+const waOptions = [
+  {
+    icon: '🍳',
+    title: 'Modular Kitchen',
+    desc: 'New kitchen design, fitting, and installation',
+    message: 'Hi VS Furnitures, I want to build a modular kitchen in my home. Can I get a free site visit and estimate?',
+  },
+  {
+    icon: '🏠',
+    title: 'Full Home Furniture',
+    desc: 'Complete home fit-out — kitchen, bedrooms, living room',
+    message: 'Hi VS Furnitures, I want to furnish my full home. Can I get a free site visit and estimate for the complete project?',
+  },
+  {
+    icon: '🪵',
+    title: 'Customized Furniture',
+    desc: 'Wardrobes, TV units, office desks, or anything custom',
+    message: 'Hi VS Furnitures, I need customized furniture built to my requirements. Can we discuss and get a free estimate?',
+  },
+];
+---
+<BaseLayout
+  title="Contact VS Furnitures — Carpenter & Furniture Contractor in Indore"
+  description="Call or WhatsApp VS Furnitures for a free site visit in Indore. Modular kitchens, wardrobes, furniture repairs & custom carpentry. 9827348796 · Mon–Sat 9AM–8PM."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Get in Touch</p>
+      <h1>Contact VS Furnitures</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Tell us what you need — we'll take it from there. Free site visit anywhere in Indore.</p>
+    </div>
+  </section>
+
+  <!-- WHATSAPP CHAT OPTIONS -->
+  <section class="section wa-section">
+    <div class="container">
+      <p class="eyebrow">Start a Conversation</p>
+      <h2>What can we help you with?</h2>
+      <div class="gold-line"></div>
+      <p class="wa-intro reveal">Tap an option below — it opens WhatsApp with a ready-to-send message. No typing needed.</p>
+
+      <div class="wa-options reveal">
+        {waOptions.map((opt) => (
+          <a
+            href={`https://wa.me/919977250002?text=${encodeURIComponent(opt.message)}`}
+            target="_blank"
+            rel="noopener"
+            class="wa-option-card"
+          >
+            <div class="woc-top">
+              <span class="woc-icon" role="img" aria-hidden="true">{opt.icon}</span>
+              <svg class="woc-wa-badge" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <h3>{opt.title}</h3>
+            <p>{opt.desc}</p>
+            <div class="woc-cta">
+              <span>Open WhatsApp →</span>
+            </div>
+            <div class="woc-preview">
+              <div class="woc-bubble">{opt.message}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="wa-note reveal">You can edit the message before sending. WhatsApp opens on your phone or browser.</p>
+    </div>
+  </section>
+
+  <!-- DIRECT CONTACT -->
+  <section class="section-sm direct-section">
+    <div class="container">
+      <p class="eyebrow">Prefer a Direct Call?</p>
+      <h2>Talk to us now</h2>
+      <div class="gold-line"></div>
+      <div class="direct-cards reveal">
+        <div class="contact-card phone">
+          <div class="cc-icon">📞</div>
+          <div>
+            <p class="cc-label">Call us</p>
+            <a href="tel:+919827348796" class="cc-value">9827348796</a>
+            <p class="cc-note">Mon–Sat, 9:00 AM – 8:00 PM</p>
+          </div>
+        </div>
+        <div class="contact-card wa">
+          <div class="cc-icon">💬</div>
+          <div>
+            <p class="cc-label">WhatsApp</p>
+            <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%27d%20like%20a%20free%20estimate." target="_blank" rel="noopener" class="cc-value">9977250002</a>
+            <p class="cc-note">Message or send a photo anytime</p>
+          </div>
+        </div>
+        <div class="contact-card info">
+          <div class="cc-icon">🕐</div>
+          <div>
+            <p class="cc-label">Working Hours</p>
+            <p class="cc-value-sm">Monday – Saturday</p>
+            <p class="cc-note">9:00 AM – 8:00 PM</p>
+          </div>
+        </div>
+        <div class="contact-card info">
+          <div class="cc-icon">📍</div>
+          <div>
+            <p class="cc-label">Service Area</p>
+            <p class="cc-value-sm">All of Indore</p>
+            <p class="cc-note">We come to you — no showroom</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="section-sm areas-section">
+    <div class="container">
+      <p class="eyebrow">Where We Work</p>
+      <h2>We serve all of Indore</h2>
+      <div class="gold-line"></div>
+      <div class="areas-tags">
+        {areas.map(a => <span class="area-tag">{a}</span>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; }
+
+/* WHATSAPP OPTIONS */
+.wa-section { background: var(--paper); }
+.wa-intro { color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; }
+.wa-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.wa-option-card {
+  background: var(--white);
+  border: 2px solid rgba(16,37,66,0.08);
+  border-radius: 10px;
+  padding: 2rem 1.5rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.wa-option-card:hover {
+  border-color: #25D366;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.woc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.woc-icon { font-size: 2.2rem; }
+.woc-wa-badge { color: #25D366; flex-shrink: 0; }
+.wa-option-card h3 { font-size: 1.15rem; color: var(--navy); font-family: var(--font-head); margin: 0; }
+.wa-option-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.45; flex: 1; }
+.woc-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #25D366;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(16,37,66,0.07);
+}
+/* Preview bubble shown on hover */
+.woc-preview {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin 0.3s ease;
+}
+.wa-option-card:hover .woc-preview {
+  max-height: 120px;
+  margin-top: 0.75rem;
+}
+.woc-bubble {
+  background: #dcf8c6;
+  border-radius: 8px 8px 0 8px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.78rem;
+  color: #1b1b1b;
+  line-height: 1.45;
+  font-family: var(--font-body);
+}
+.wa-note { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+/* DIRECT CONTACT */
+.direct-section { background: var(--white); }
+.direct-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.contact-card { display: flex; gap: 0.85rem; align-items: flex-start; background: var(--paper); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.25rem; }
+.contact-card.phone { border-left: 3px solid var(--navy); }
+.contact-card.wa { border-left: 3px solid #25D366; }
+.contact-card.info { border-left: 3px solid var(--gold); }
+.cc-icon { font-size: 1.4rem; flex-shrink: 0; }
+.cc-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.2rem; }
+.cc-value { font-size: 1.25rem; font-weight: 700; color: var(--navy); text-decoration: none; display: block; }
+.cc-value:hover { color: var(--gold); }
+.cc-value-sm { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+.cc-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+
+/* AREAS */
+.areas-section { background: var(--paper); }
+.areas-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.area-tag { background: var(--white); border: 1px solid rgba(16,37,66,0.12); border-radius: 40px; padding: 0.35rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+
+@media (max-width: 900px) { .wa-options { grid-template-columns: 1fr; gap: 1rem; } .direct-cards { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 500px) { .direct-cards { grid-template-columns: 1fr; } }
+</style>

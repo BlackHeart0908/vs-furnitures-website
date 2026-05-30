@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout
+  title={`${post.data.title} | VS Furnitures Blog`}
+  description={post.data.description}
+>
+  <article class="blog-post">
+    <header class="post-hero">
+      <div class="container">
+        <div class="post-meta">
+          <a href="/blog" class="back-link">← All articles</a>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        </div>
+        <h1>{post.data.title}</h1>
+        {post.data.tags && (
+          <div class="tags">
+            {post.data.tags.map(tag => <span class="post-tag">{tag}</span>)}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <div class="post-body container">
+      <Content />
+    </div>
+
+    <div class="post-cta container">
+      <div class="post-cta-inner">
+        <p class="eyebrow">Need Help?</p>
+        <h2>Free site visit anywhere in Indore</h2>
+        <p>Call or WhatsApp — we'll come to you, measure, and give an honest estimate.</p>
+        <div class="cta-btns">
+          <a href="tel:+919827348796" class="btn btn-gold">Call 9827348796</a>
+          <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20read%20your%20blog%20and%20I%27d%20like%20a%20free%20estimate." target="_blank" rel="noopener" class="btn btn-primary">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.post-hero { background: var(--navy-deep); padding: 80px 0 48px; }
+.post-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+.back-link { font-size: 0.85rem; font-weight: 600; color: var(--gold); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.post-meta time { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.post-hero h1 { color: var(--white); font-size: clamp(1.75rem,4vw,2.5rem); line-height: 1.2; max-width: 780px; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.post-tag { background: rgba(194,162,74,0.2); color: var(--gold); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 3px; }
+
+.post-body {
+  max-width: 780px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.post-body :global(h2) { font-size: 1.5rem; color: var(--navy); margin: 2rem 0 0.75rem; }
+.post-body :global(h3) { font-size: 1.2rem; color: var(--navy); margin: 1.5rem 0 0.5rem; }
+.post-body :global(p) { margin-bottom: 1rem; }
+.post-body :global(ul), .post-body :global(ol) { padding-left: 1.5rem; margin-bottom: 1rem; }
+.post-body :global(li) { margin-bottom: 0.35rem; }
+.post-body :global(strong) { color: var(--navy); font-weight: 700; }
+.post-body :global(a) { color: var(--gold); text-decoration: underline; }
+
+.post-cta { padding-bottom: 4rem; }
+.post-cta-inner { background: var(--navy); border-radius: var(--radius); padding: 2.5rem; max-width: 780px; }
+.post-cta-inner .eyebrow { margin-bottom: 0.5rem; }
+.post-cta-inner h2 { color: var(--white); font-size: 1.4rem; margin-bottom: 0.5rem; }
+.post-cta-inner p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+.cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+</style>

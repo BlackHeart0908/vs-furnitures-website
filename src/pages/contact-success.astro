@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Thank You | VS Furnitures"
+  description="Thank you for contacting VS Furnitures. We'll call you back within a few hours."
+>
+  <section class="success-section">
+    <div class="container success-inner">
+      <span class="success-icon">✅</span>
+      <h1>Thank you!</h1>
+      <p>We've received your enquiry and will call you back within a few hours.</p>
+      <p>For a faster response, call or WhatsApp us directly:</p>
+      <div class="success-btns">
+        <a href="tel:+919827348796" class="btn btn-primary">Call 9827348796</a>
+        <a href="https://wa.me/919977250002" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
+      </div>
+      <a href="/" class="back-home">← Back to home</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.success-section { padding: 120px 0; text-align: center; }
+.success-inner { max-width: 480px; margin: 0 auto; }
+.success-icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+h1 { margin-bottom: 1rem; }
+p { color: var(--muted); margin-bottom: 0.75rem; }
+.success-btns { display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0; flex-wrap: wrap; }
+.back-home { font-size: 0.88rem; color: var(--gold); font-weight: 600; }
+</style>

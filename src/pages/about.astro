@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+---
+<BaseLayout
+  title="About VS Furnitures — 30+ Years of Carpentry in Indore"
+  description="VS Furnitures is a family-run furniture contractor in Indore with 30+ years experience. Learn our story, how we work, and why hundreds of Indore families trust us."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Our Story</p>
+      <h1>30+ Years of Craftsmanship in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">A family-run furniture contractor business — built on honest work, quality materials, and a genuine commitment to every home we enter.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-story reveal">
+        <p class="eyebrow">The Story</p>
+        <h2>From carpenter to contractor</h2>
+        <div class="gold-line"></div>
+        <p>VS Furnitures was started by our family over 30 years ago in Indore. What began as traditional carpentry work — building doors, windows, and custom furniture for local homes — grew into a full furniture contracting business serving hundreds of families across the city.</p>
+        <p>Today we are a team of skilled craftsmen who plan, source, and deliver complete furniture projects: modular kitchens, wardrobes, bedroom sets, office furniture, and full home interiors. One team, one warranty, zero hassle for you.</p>
+        <p>We still do it the way we always have — with care, honesty, and the pride that comes from building something that will last in your home for decades.</p>
+      </div>
+      <div class="about-values reveal">
+        <p class="eyebrow">Our Values</p>
+        <h2>What we believe in</h2>
+        <div class="gold-line"></div>
+        <div class="values-list">
+          {[
+            { title: 'Honest estimates', body: 'We tell you exactly what materials we use and why. No hidden costs.' },
+            { title: 'Quality before speed', body: 'We won\'t rush a project to fill the next slot. Your furniture should last 10+ years.' },
+            { title: 'Written warranty', body: 'We put our warranty in writing because we\'re confident in our work.' },
+            { title: 'One accountable team', body: 'You deal with us from start to finish — no subcontracting the tricky parts.' },
+          ].map(v => (
+            <div class="value-item">
+              <span class="value-dot"></span>
+              <div>
+                <strong>{v.title}</strong>
+                <p>{v.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm stats-strip">
+    <div class="container stats-grid">
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Years in Indore</span></div>
+      <div class="stat"><span class="stat-num">700+</span><span class="stat-label">Modular Kitchens</span></div>
+      <div class="stat"><span class="stat-num">150+</span><span class="stat-label">Homes Furnished</span></div>
+      <div class="stat"><span class="stat-num">1-Year</span><span class="stat-label">Written Warranty</span></div>
+    </div>
+  </section>
+
+  <CTABand heading="Come work with us." sub="Free site visit anywhere in Indore. We'll visit, measure, and share an honest estimate." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.about-story p, .about-values p { color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.values-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem; }
+.value-item { display: flex; gap: 1rem; align-items: flex-start; }
+.value-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 0.4rem; }
+.value-item strong { display: block; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+.value-item p { color: var(--muted); font-size: 0.88rem; margin: 0; }
+.stats-strip { background: var(--navy); }
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); text-align: center; }
+.stat { padding: 2rem 1rem; border-right: 1px solid rgba(255,255,255,0.1); }
+.stat:last-child { border: none; }
+.stat-num { display: block; font-family: var(--font-head); font-size: clamp(2rem,4vw,2.8rem); font-weight: 700; color: var(--gold); margin-bottom: 0.25rem; }
+.stat-label { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; text-transform: uppercase; }
+@media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } .stats-grid { grid-template-columns: repeat(2,1fr); } .stat:nth-child(2) { border-right: none; } }
+</style>

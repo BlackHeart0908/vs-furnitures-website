@@ -10,9 +10,10 @@ interface Props {
   description: string;
   ogImage?: string;
   canonical?: string;
+  noindex?: boolean;
 }
 
-const { title, description, ogImage = '/images/og-default.jpg', canonical } = Astro.props;
+const { title, description, ogImage = '/images/og-default.jpg', canonical, noindex = false } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 
 const localBusinessSchema = {
@@ -26,14 +27,18 @@ const localBusinessSchema = {
   "description": "VS Furnitures — furniture contractor & custom carpentry serving all of Indore for 30+ years. Modular kitchens, wardrobes, furniture repair, and complete home interiors.",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Indore",
+    "streetAddress": "House No. 1403, Ward No. 24, Near Karmachari Rajya Beema Hospital",
+    "addressLocality": "Nanda Nagar, Indore",
     "addressRegion": "Madhya Pradesh",
+    "postalCode": "452011",
     "addressCountry": "IN"
   },
   "areaServed": [
-    "Vijay Nagar", "Palasia", "Rau", "Bicholi", "Sudama Nagar",
-    "Annapurna", "Bhawarkua", "Nanda Nagar", "MR-10", "Scheme 54",
-    "Old Palasia", "AB Road", "Indore"
+    "Vijay Nagar", "Palasia", "Mahalaxmi Nagar", "Tulsi Nagar", "Rajendra Nagar",
+    "Nipaniya", "Niranjanpur", "Omex City Phase 1 & 2", "Dewas Naka", "Talawali Chanda",
+    "County Walk", "Singapur Township", "Ansal Township", "Shiv Vatika",
+    "SS Infinitus", "Apollo DB City", "Annapurna", "Nanda Nagar",
+    "MR-10", "Scheme 54", "Old Palasia", "AB Road", "Indore"
   ],
   "openingHoursSpecification": [
     {
@@ -67,7 +72,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Which areas of Indore do you cover?",
-      "acceptedAnswer": { "@type": "Answer", "text": "All of Indore — Vijay Nagar, Palasia, Rau, Sudama Nagar, Annapurna, Nanda Nagar, Bhawarkua, Bicholi, MR-10, Scheme 54, AB Road and more." }
+      "acceptedAnswer": { "@type": "Answer", "text": "All of Indore — Vijay Nagar, Palasia, Mahalaxmi Nagar, Tulsi Nagar, Rajendra Nagar, Nipaniya, Niranjanpur, Omex City, Dewas Naka, Talawali Chanda, County Walk, Singapur Township, Ansal Township, Shiv Vatika, SS Infinitus, Apollo DB City, Annapurna, Nanda Nagar, MR-10, Scheme 54, Old Palasia, AB Road and more." }
     },
     {
       "@type": "Question",
@@ -108,6 +113,7 @@ const faqSchema = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -124,8 +130,8 @@ const faqSchema = {
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
   </head>
   <body>
     <Header />

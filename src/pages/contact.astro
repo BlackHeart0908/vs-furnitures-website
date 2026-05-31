@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const areas = ['Vijay Nagar','Palasia','Rau','Bicholi','Sudama Nagar','Annapurna','Bhawarkua','Nanda Nagar','MR-10','Scheme 54','Old Palasia','AB Road'];
+const areas = ['Vijay Nagar','Palasia','Mahalaxmi Nagar','Tulsi Nagar','Rajendra Nagar','Nipaniya','Niranjanpur','Omex City Phase 1 & 2','Dewas Naka','Talawali Chanda','County Walk','Singapur Township','Ansal Township','Shiv Vatika','SS Infinitus','Apollo DB City','Annapurna','Nanda Nagar','MR-10','Scheme 54','Old Palasia','AB Road'];
 
 const waOptions = [
   {
@@ -118,6 +118,28 @@ const waOptions = [
     </div>
   </section>
 
+  <!-- MAP -->
+  <section class="section map-section">
+    <div class="container">
+      <p class="eyebrow">Our Location</p>
+      <h2>We serve all of Indore</h2>
+      <div class="gold-line"></div>
+      <p class="map-note reveal">We are a service-area business — we come to your home or office. No need to visit us.</p>
+      <div class="map-embed-wrap reveal">
+        <iframe
+          title="VS Furnitures — Nanda Nagar, Indore"
+          src="https://maps.google.com/maps?q=Karmachari+Rajya+Beema+Hospital,+Nanda+Nagar,+Indore,+Madhya+Pradesh+452011&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- AREAS -->
   <section class="section-sm areas-section">
     <div class="container">
@@ -225,6 +247,18 @@ const waOptions = [
 .cc-value:hover { color: var(--gold); }
 .cc-value-sm { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
 .cc-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+
+/* MAP */
+.map-section { background: var(--white); }
+.map-note { font-size: 0.88rem; color: var(--muted); font-style: italic; margin-bottom: 1.5rem; }
+.map-embed-wrap {
+  height: 420px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(16,37,66,0.08);
+}
+@media (max-width: 700px) { .map-embed-wrap { height: 280px; } }
 
 /* AREAS */
 .areas-section { background: var(--paper); }

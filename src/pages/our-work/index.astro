@@ -1,0 +1,172 @@
+---
+import { readdirSync } from 'fs';
+import { join } from 'path';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+import categories from '../../data/work-categories.json';
+
+const IMAGE_EXTS = /\.(jpg|jpeg|png|webp|avif)$/i;
+
+const categoryData = categories.map(cat => {
+  const dir = join(process.cwd(), 'public', 'images', 'work', cat.slug);
+  let images: string[] = [];
+  try {
+    images = readdirSync(dir).filter(f => IMAGE_EXTS.test(f)).sort();
+  } catch {}
+  return {
+    ...cat,
+    count: images.length,
+    coverImage: images[0] ? `/images/work/${cat.slug}/${images[0]}` : null,
+  };
+});
+---
+<BaseLayout
+  title="Our Work — Furniture Projects in Indore | VS Furnitures"
+  description="Browse real furniture projects by VS Furnitures — modular kitchens, TV units, wardrobes, living room, office furniture, and repairs across Indore."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Our Work Across Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Real projects, real homes. Browse by category to see our full range of work across Indore.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cat-grid">
+        {categoryData.map(cat => (
+          <a href={`/our-work/${cat.slug}`} class="cat-card">
+            <div class="cat-img-wrap">
+              {cat.coverImage ? (
+                <img src={cat.coverImage} alt={`${cat.title} by VS Furnitures Indore`} loading="lazy" width="600" height="400" />
+              ) : (
+                <div class="cat-no-img">
+                  <span>Photos coming soon</span>
+                </div>
+              )}
+              {cat.count > 0 && (
+                <span class="cat-count">{cat.count} photos</span>
+              )}
+            </div>
+            <div class="cat-info">
+              <h2>{cat.title}</h2>
+              <p>{cat.description}</p>
+              <span class="cat-link">View Gallery →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Like what you see?" sub="Call or WhatsApp for a free site visit — anywhere in Indore." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; }
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.cat-card {
+  text-decoration: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(16,37,66,0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cat-img-wrap {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  background: #e8e0d5;
+}
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.cat-card:hover .cat-img-wrap img {
+  transform: scale(1.05);
+}
+.cat-no-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8e0d5, #d4c9b8);
+}
+.cat-no-img span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.cat-count {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(16,37,66,0.85);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.cat-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cat-info h2 {
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin: 0;
+}
+.cat-info p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+  margin: 0;
+}
+.cat-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 0.5rem;
+  transition: letter-spacing 0.2s;
+}
+.cat-card:hover .cat-link {
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 550px) { .cat-grid { grid-template-columns: 1fr; } }
+</style>

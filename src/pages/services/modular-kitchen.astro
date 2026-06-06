@@ -2,10 +2,71 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABand from '../../components/CTABand.astro';
 import FurnitureViewer from '../../components/FurnitureViewer';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Modular Kitchen","item":"https://vsfurnitures.in/services/modular-kitchen"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Modular Kitchen",
+  "name": "Modular Kitchen in Indore",
+  "description": "Custom modular kitchen in Indore — L-shaped, U-shaped, straight layouts. Soft-close hardware, quality ply, 1-year warranty. VS Furnitures, 30+ years. Free site visit.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/modular-kitchen",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Starting from ₹39,990",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a modular kitchen cost in Indore?",
+      "acceptedAnswer": {"@type":"Answer","text":"Our kitchens start from ₹39,990. Every kitchen has its own price — the size, layout, and finish you choose each decide the cost. Our labour starts at ₹200 per sq. ft. Contact us for a free site visit and exact estimate."}
+    },
+    {
+      "@type": "Question",
+      "name": "What plywood do you use for modular kitchens?",
+      "acceptedAnswer": {"@type":"Answer","text":"We use BWP (Boiling Waterproof) or BWR (Boiling Water Resistant) plywood for the carcass — the best choice for Indore's climate."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long does modular kitchen installation take?",
+      "acceptedAnswer": {"@type":"Answer","text":"Most kitchens take 3 to 4 weeks from measurement to final fitting."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you install granite countertops?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes — we help source and fit the countertop as part of the kitchen project."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a modular kitchen in a small flat?",
+      "acceptedAnswer": {"@type":"Answer","text":"Absolutely. Most of our kitchens are built in standard Indore flats. We optimise layouts for smaller spaces."}
+    }
+  ]
+};
 ---
 <BaseLayout
   title="Modular Kitchen in Indore | Best Kitchen Carpenter | VS Furnitures"
   description="Custom modular kitchen in Indore — L-shaped, U-shaped, straight layouts. Soft-close hardware, quality ply, 1-year warranty. VS Furnitures, 30+ years. Free site visit."
+  ogImage="/images/og-modular-kitchen.jpg"
+  additionalSchemas={[breadcrumbSchema, serviceSchema, faqSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -43,6 +104,25 @@ import FurnitureViewer from '../../components/FurnitureViewer';
     </div>
   </section>
 
+  <!-- PRICING SECTION -->
+  <section class="section pricing-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">Pricing</p>
+      <h2>How Much Does a Modular Kitchen Cost in Indore?</h2>
+      <div class="gold-line"></div>
+      <div class="kitchen-price-block reveal">
+        <div class="kitchen-starting">
+          <span class="from-label">Kitchens at VS Furnitures start from</span>
+          <span class="from-amount">₹39,990</span>
+        </div>
+        <div class="kitchen-sentiment">
+          <p>Every kitchen has its own price. The size, the layout, the finish you choose — each one decides what it costs. Our labour starts at <strong>₹200 per sq. ft.</strong>, and we give you an exact figure after a free site visit.</p>
+        </div>
+        <a href="tel:+919827348796" class="btn btn-gold">Get Your Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <p class="eyebrow">What's Included</p>
@@ -61,6 +141,86 @@ import FurnitureViewer from '../../components/FurnitureViewer';
             <h3>{item.title}</h3>
             <p>{item.desc}</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALS TABLE -->
+  <section class="section materials-section">
+    <div class="container">
+      <p class="eyebrow">Materials</p>
+      <h2>What Goes Inside a VS Furnitures Kitchen</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">Every component choice affects how long your kitchen lasts and how it feels to use every day. Here is what we use and why.</p>
+      <div class="mat-table-wrap reveal">
+        <table class="mat-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Material Used</th>
+              <th>Why It Matters</th>
+              <th>Lifespan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Carcass (main body)</td>
+              <td>BWP / BWR Plywood</td>
+              <td>Waterproof — survives Indore humidity and heat</td>
+              <td>15–20 years</td>
+            </tr>
+            <tr>
+              <td>Shutters / Doors</td>
+              <td>Laminate, Acrylic, or PU finish</td>
+              <td>Determines look and durability of the visible surface</td>
+              <td>10–15 years</td>
+            </tr>
+            <tr>
+              <td>Hinges &amp; Channels</td>
+              <td>Hettich or equivalent</td>
+              <td>Soft-close, smooth operation, won't loosen</td>
+              <td>10+ years</td>
+            </tr>
+            <tr>
+              <td>Countertop</td>
+              <td>Granite or Quartz</td>
+              <td>Hardest work surface, heat and scratch resistant</td>
+              <td>20+ years</td>
+            </tr>
+            <tr>
+              <td>Loft Units</td>
+              <td>Same ply as carcass</td>
+              <td>Maximises vertical storage above counter level</td>
+              <td>15–20 years</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section faq-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Modular kitchen — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'How much does a modular kitchen cost in Indore?', a: 'Our kitchens start from ₹39,990. Every kitchen has its own price — size, layout, and finish decide the cost. Our labour starts at ₹200 per sq. ft. We give you an exact figure after a free site visit.' },
+          { q: 'What plywood do you use for modular kitchens?', a: 'We use BWP (Boiling Waterproof) or BWR (Boiling Water Resistant) plywood for the carcass — the best choice for Indore\'s climate.' },
+          { q: 'How long does installation take?', a: 'Most kitchens take 3 to 4 weeks from measurement to final fitting.' },
+          { q: 'Do you install granite countertops?', a: 'Yes — we help source and fit the countertop as part of the kitchen project.' },
+          { q: 'Can you build a modular kitchen in a small flat?', a: 'Absolutely. Most of our kitchens are built in standard Indore flats. We optimise layouts for smaller spaces.' },
+        ].map(faq => (
+          <details class="faq-item reveal">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
         ))}
       </div>
     </div>
@@ -87,4 +247,28 @@ import FurnitureViewer from '../../components/FurnitureViewer';
 .feature-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
 .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 @media (max-width: 800px) { .viewer-wrap { grid-template-columns: 1fr; } .viewer-box { height: 280px; } }
+.pricing-section { background: var(--paper); }
+.kitchen-price-block { background: var(--navy); border-radius: var(--radius); padding: 2.5rem; display: flex; flex-direction: column; gap: 1.75rem; max-width: 680px; box-shadow: var(--shadow-md); border-left: 5px solid var(--gold); }
+.kitchen-starting { display: flex; flex-direction: column; gap: 0.3rem; }
+.from-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+.from-amount { font-family: var(--font-head); font-size: clamp(2.8rem,7vw,4rem); color: var(--gold); font-weight: 700; line-height: 1; }
+.kitchen-sentiment p { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.88); }
+.kitchen-sentiment strong { color: var(--gold); font-weight: 700; }
+.materials-section { background: var(--white); }
+.section-sub { color: var(--muted); max-width: 680px; margin-bottom: 1.5rem; }
+.price-table-wrap, .mat-table-wrap { overflow-x: auto; margin-bottom: 1rem; }
+.price-table, .mat-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.price-table th, .mat-table th { background: var(--navy); color: var(--white); text-align: left; padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.price-table td, .mat-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(16,37,66,0.08); color: var(--ink); line-height: 1.5; }
+.price-table tr:last-child td, .mat-table tr:last-child td { border-bottom: none; }
+.price-table tr:nth-child(even) td, .mat-table tr:nth-child(even) td { background: var(--paper); }
+.price-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+.faq-section { background: var(--paper); }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 </style>

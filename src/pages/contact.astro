@@ -3,6 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const areas = ['Vijay Nagar','Palasia','Mahalaxmi Nagar','Tulsi Nagar','Rajendra Nagar','Nipaniya','Niranjanpur','Omex City Phase 1 & 2','Dewas Naka','Talawali Chanda','County Walk','Singapur Township','Ansal Township','Shiv Vatika','SS Infinitus','Apollo DB City','Annapurna','Nanda Nagar','MR-10','Scheme 54','Old Palasia','AB Road'];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Contact","item":"https://vsfurnitures.in/contact"}
+  ]
+};
+
 const waOptions = [
   {
     icon: '🍳',
@@ -27,6 +36,7 @@ const waOptions = [
 <BaseLayout
   title="Contact VS Furnitures — Carpenter & Furniture Contractor in Indore"
   description="Call or WhatsApp VS Furnitures for a free site visit in Indore. Modular kitchens, wardrobes, furniture repairs & custom carpentry. 9827348796 · Mon–Sat 9AM–8PM."
+  additionalSchemas={[breadcrumbSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -72,6 +82,52 @@ const waOptions = [
       </div>
 
       <p class="wa-note reveal">You can edit the message before sending. WhatsApp opens on your phone or browser.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section form-section">
+    <div class="container">
+      <p class="eyebrow">Request a Site Visit</p>
+      <h2>Fill in your details — we'll call you back</h2>
+      <div class="gold-line"></div>
+      <p class="form-intro reveal">Not ready to call yet? Leave your details and we'll reach out to book a free site visit at your convenience.</p>
+      <form id="contactForm" class="contact-form reveal" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Your Name <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="name" placeholder="e.g. Ramesh Sharma" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="cf-phone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="e.g. 9827348796" required autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-service">Service Needed <span class="req">*</span></label>
+          <select id="cf-service" name="service" required>
+            <option value="">— Select a service —</option>
+            <option value="Modular Kitchen">Modular Kitchen</option>
+            <option value="Wardrobe">Wardrobe</option>
+            <option value="Living Room Furniture">Living Room Furniture</option>
+            <option value="Office Furniture">Office Furniture</option>
+            <option value="Furniture Repair or Polishing">Furniture Repair or Polishing</option>
+            <option value="False Ceiling">False Ceiling</option>
+            <option value="Custom Carpentry">Custom Carpentry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message / Area in Indore <span class="optional">(optional)</span></label>
+          <textarea id="cf-message" name="message" rows="3" placeholder="e.g. Need a modular kitchen in Vijay Nagar, 2BHK flat, L-shaped layout"></textarea>
+        </div>
+        <div id="form-error" class="form-error" aria-live="polite"></div>
+        <button type="submit" class="btn btn-gold btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send via WhatsApp
+        </button>
+        <p class="form-wa-note">Submitting opens WhatsApp with your details pre-filled — you send the message.</p>
+      </form>
     </div>
   </section>
 
@@ -267,4 +323,77 @@ const waOptions = [
 
 @media (max-width: 900px) { .wa-options { grid-template-columns: 1fr; gap: 1rem; } .direct-cards { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 500px) { .direct-cards { grid-template-columns: 1fr; } }
+
+/* CONTACT FORM */
+.form-section { background: var(--white); }
+.form-intro { color: var(--muted); max-width: 520px; margin-bottom: 2rem; }
+.contact-form { max-width: 640px; display: flex; flex-direction: column; gap: 1.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+.req { color: var(--gold); }
+.optional { font-weight: 400; color: var(--muted); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid rgba(16,37,66,0.18);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(16,37,66,0.08);
+}
+.form-group input.invalid,
+.form-group select.invalid {
+  border-color: #c0392b;
+}
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-error { color: #c0392b; font-size: 0.85rem; font-weight: 600; min-height: 1.2em; }
+.btn-submit { display: flex; align-items: center; gap: 0.6rem; width: fit-content; font-size: 1rem; padding: 0.9rem 2rem; }
+.form-wa-note { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-top: -0.5rem; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
 </style>
+
+<script>
+const form = document.getElementById('contactForm') as HTMLFormElement | null;
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nameEl   = document.getElementById('cf-name')    as HTMLInputElement;
+    const phoneEl  = document.getElementById('cf-phone')   as HTMLInputElement;
+    const serviceEl= document.getElementById('cf-service') as HTMLSelectElement;
+    const msgEl    = document.getElementById('cf-message') as HTMLTextAreaElement;
+    const errEl    = document.getElementById('form-error')!;
+
+    // Reset
+    [nameEl, phoneEl, serviceEl].forEach(el => el.classList.remove('invalid'));
+    errEl.textContent = '';
+
+    const name    = nameEl.value.trim();
+    const phone   = phoneEl.value.trim();
+    const service = serviceEl.value;
+    const message = msgEl.value.trim();
+
+    if (!name) { nameEl.classList.add('invalid'); errEl.textContent = 'Please enter your name.'; nameEl.focus(); return; }
+    if (!phone || !/^[6-9]\d{9}$/.test(phone.replace(/\s/g, ''))) { phoneEl.classList.add('invalid'); errEl.textContent = 'Please enter a valid 10-digit Indian mobile number.'; phoneEl.focus(); return; }
+    if (!service) { serviceEl.classList.add('invalid'); errEl.textContent = 'Please select a service.'; serviceEl.focus(); return; }
+
+    let text = `Hi VS Furnitures, I'd like to request a free site visit.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}`;
+    if (message) text += `\nDetails: ${message}`;
+
+    const waUrl = `https://wa.me/919977250002?text=${encodeURIComponent(text)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  });
+}
+</script>

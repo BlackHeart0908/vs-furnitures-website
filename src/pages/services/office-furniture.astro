@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Office Furniture","item":"https://vsfurnitures.in/services/office-furniture"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Office Furniture",
+  "name": "Office Furniture in Indore",
+  "description": "Custom office furniture in Indore — workstations, executive desks, reception counters, conference tables, storage cabinets. Home offices and commercial spaces. 30+ years. Call 9827348796.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/office-furniture",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "₹20,000 – ₹3,00,000",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Office Furniture in Indore | Workstations, Desks, Reception Counters | VS Furnitures"
+  description="Custom office furniture in Indore — workstations, executive desks, reception counters, conference tables, storage cabinets. Home offices and commercial spaces. 30+ years. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Office Furniture in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Workstations, reception counters, executive desks and conference tables — built to your office layout. Home offices and commercial projects both welcome.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Free Estimate</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20office%20furniture%20in%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What We Build</p>
+      <h2>Office furniture for every space in Indore</h2>
+      <div class="gold-line"></div>
+      <div class="grid-3 mt reveal">
+        {[
+          {
+            icon: '💻',
+            title: 'Workstations',
+            desc: 'Individual desks, pod workstations for teams, L-shaped home office setups, and standing desk options — all with built-in cable management so your workspace stays clean.'
+          },
+          {
+            icon: '🏢',
+            title: 'Reception Counters',
+            desc: 'Front desk reception counters that make a strong first impression. We build to your branding colours and materials — laminate, acrylic, veneer, or stone top.'
+          },
+          {
+            icon: '🗄️',
+            title: 'Storage & Cabinets',
+            desc: 'Filing cabinets, overhead storage units, lockable cabinets, and server room racks. Keeps your office organised and professional looking.'
+          },
+          {
+            icon: '🤝',
+            title: 'Conference Tables',
+            desc: 'Boardroom tables for 6 to 20 people. Team meeting tables. Modular table configurations that can be rearranged. Custom shapes — rectangular, boat-shaped, round.'
+          },
+          {
+            icon: '🛋️',
+            title: 'Waiting Area Seating',
+            desc: 'Waiting room benches, chairs, and coffee tables. Custom upholstered seating that matches your office interior. Built to handle daily commercial use.'
+          },
+          {
+            icon: '👔',
+            title: 'Executive Cabins',
+            desc: 'Complete executive office setups — large desks, credenzas, bookshelves, and visitor chairs. One team handles the whole cabin fit-out.'
+          },
+        ].map(item => (
+          <div class="feature-card reveal">
+            <span class="feature-icon">{item.icon}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-office texture-bg">
+    <div class="container">
+      <p class="eyebrow">Why Custom</p>
+      <h2>Why custom office furniture beats off-the-shelf</h2>
+      <div class="gold-line"></div>
+      <div class="grid-2 mt reveal">
+        <div class="reason-block">
+          <h3>Built to your exact floor plan</h3>
+          <p>Standard office furniture is built in a factory without knowing your space. We start with a site visit and measure every corner, column, and awkward angle — so every piece fits perfectly, including around pillars and uneven walls common in Indore commercial properties.</p>
+        </div>
+        <div class="reason-block">
+          <h3>Consistent finish across everything</h3>
+          <p>When you mix furniture from different brands, finishes never quite match. We build every piece in the same workshop with the same materials, so your reception counter, desks, and storage cabinets all look like they belong together.</p>
+        </div>
+        <div class="reason-block">
+          <h3>One-year warranty, one team</h3>
+          <p>If a hinge breaks or a drawer sticks in the first year, we fix it — no customer service queue, no shipping the piece back to a factory. We are based in Indore and respond quickly.</p>
+        </div>
+        <div class="reason-block">
+          <h3>Commercial-grade materials</h3>
+          <p>We use BWP commercial ply, high-pressure laminate, and quality hardware rated for heavy daily use. Office furniture sees far more wear than home furniture — we build accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Office furniture — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'How long do office furniture projects take?', a: 'Small projects (1–5 workstations) take 10 to 15 days. Larger office fit-outs typically take 3 to 5 weeks depending on scope. We give you a confirmed timeline before starting.' },
+          { q: 'Do you work outside normal hours to avoid disrupting our office?', a: 'Yes — for commercial projects we can schedule installation in the evenings or on weekends so your operations are not disrupted. Discuss this with us at the site visit.' },
+          { q: 'Can you match corporate branding colours in the furniture?', a: 'Yes — we have a wide range of laminate and acrylic colours. Share your brand colour codes or samples and we will find the closest match available.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need office furniture in Indore?" sub="Call or WhatsApp for a free site visit — we measure, suggest layouts, and give you an honest estimate." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.mt { margin-top: 1.5rem; }
+.feature-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.feature-icon { font-size: 1.8rem; display: block; margin-bottom: 0.75rem; }
+.feature-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.why-office { background: var(--paper); }
+.reason-block { background: var(--white); padding: 1.75rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.reason-block h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.reason-block p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+</style>

@@ -10,14 +10,14 @@ const reviews = reviewsData;
 const services = [
   { icon: '🍳', name: 'Modular Kitchen', desc: 'Soft-close, durable, built to your space.', href: '/services/modular-kitchen' },
   { icon: '🛏️', name: 'Bedroom Furniture', desc: 'Wardrobes, beds, dressing tables.', href: '/services/wardrobes-bedroom' },
-  { icon: '🛋️', name: 'Living Room Furniture', desc: 'TV units, sofas, shelves.', href: '/services' },
-  { icon: '💼', name: 'Office Furniture', desc: 'Workstations, desks, reception counters.', href: '/services' },
-  { icon: '🚪', name: 'Door & Window Frames', desc: 'Solid, precise, long-lasting.', href: '/services' },
-  { icon: '✨', name: 'False Ceiling & Paneling', desc: 'Clean finishes that elevate a room.', href: '/services' },
+  { icon: '🛋️', name: 'Living Room Furniture', desc: 'TV units, sofas, shelves.', href: '/services/living-room' },
+  { icon: '💼', name: 'Office Furniture', desc: 'Workstations, desks, reception counters.', href: '/services/office-furniture' },
+  { icon: '🚪', name: 'Door & Window Frames', desc: 'Solid, precise, long-lasting.', href: '/services/door-window-frames' },
+  { icon: '✨', name: 'False Ceiling & Paneling', desc: 'Clean finishes that elevate a room.', href: '/services/false-ceiling' },
   { icon: '🔧', name: 'Furniture Repair & Polishing', desc: 'Make old furniture look new.', href: '/services/furniture-repair' },
-  { icon: '🪵', name: 'Custom Carpentry', desc: 'Anything in wood, made to order.', href: '/services' },
-  { icon: '📦', name: 'Furniture Assembly', desc: 'Safe shifting, fitting, refitting.', href: '/services' },
-  { icon: '🏺', name: 'Old Furniture Restoration', desc: 'Revive and re-polish treasured pieces.', href: '/services/furniture-repair' },
+  { icon: '🪵', name: 'Custom Carpentry', desc: 'Anything in wood, made to order.', href: '/services/custom-carpentry' },
+  { icon: '📦', name: 'Furniture Assembly', desc: 'Safe shifting, fitting, refitting.', href: '/services/furniture-assembly' },
+  { icon: '🏺', name: 'Old Furniture Restoration', desc: 'Revive and re-polish treasured pieces.', href: '/services/furniture-restoration' },
 ];
 
 const faqs = [
@@ -31,10 +31,64 @@ const faqs = [
 ];
 
 const featuredWork = workData.slice(0, 6);
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://vsfurnitures.in/#website",
+  "url": "https://vsfurnitures.in",
+  "name": "VS Furnitures",
+  "description": "Carpenter and furniture contractor in Indore",
+  "inLanguage": "en-IN"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you charge for a site visit?",
+      "acceptedAnswer": {"@type":"Answer","text":"No — site visits within 7 km of Indore are completely free with no obligation."}
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas of Indore do you cover?",
+      "acceptedAnswer": {"@type":"Answer","text":"All of Indore — Vijay Nagar, Palasia, Mahalaxmi Nagar, Tulsi Nagar, Rajendra Nagar, Nipaniya, Niranjanpur, Omex City, Dewas Naka, Annapurna, Nanda Nagar, MR-10, Scheme 54, AB Road, Rau and more."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer a warranty?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes — a 1-year written warranty on all workmanship and hardware."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a modular kitchen take to build?",
+      "acceptedAnswer": {"@type":"Answer","text":"Modular kitchens typically take 3 to 4 weeks from measurement to completion. Smaller furniture pieces take 7 to 15 days."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between With Material and Percentage Basis?",
+      "acceptedAnswer": {"@type":"Answer","text":"With Material means we source all materials and handle everything. Percentage Basis means you arrange your own materials and we provide skilled craftsmanship and project management."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle furniture repairs and polishing?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes — repairs, polishing, restoration, hinge replacement, joint repair and modifications. First repair gets 10% off. Same-day service available."}
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a modular kitchen cost in Indore?",
+      "acceptedAnswer": {"@type":"Answer","text":"Our modular kitchens start from ₹39,990. Every kitchen has its own price — the size, layout, and finish you choose decide the cost. Our labour starts at ₹200 per sq. ft. We give you an exact figure after a free site visit."}
+    }
+  ]
+};
 ---
 <BaseLayout
   title="Best Carpenter & Furniture Contractor in Indore | VS Furnitures"
   description="VS Furnitures — trusted carpenter & furniture contractor in Indore with 30+ years experience. Modular kitchens, wardrobes, repairs & custom carpentry. Free site visit within 7 km. Call 9827348796."
+  ogImage="/images/og-homepage.jpg"
+  additionalSchemas={[websiteSchema, faqSchema]}
 >
 
   <!-- HERO -->
@@ -42,7 +96,7 @@ const featuredWork = workData.slice(0, 6);
     <div class="hero-bg">
       <div class="hero-viewer">
         <FurnitureViewer
-          client:visible
+          client:idle
           fallbackImage="/images/hero-kitchen.jpg"
           fallbackAlt="Modular kitchen crafted by VS Furnitures, best carpenter in Indore"
         />
@@ -71,6 +125,18 @@ const featuredWork = workData.slice(0, 6);
       </div>
     </div>
   </section>
+
+  <!-- OFFER TICKER -->
+  <div class="offer-ticker" aria-label="Special offer">
+    <div class="ticker-track">
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+      <span class="ticker-item">✦ Our kitchen starts at ₹39,990/- only — and goes to your exact dream kitchen</span>
+    </div>
+  </div>
 
   <!-- STATS -->
   <section class="stats-strip section-sm">
@@ -267,6 +333,30 @@ const featuredWork = workData.slice(0, 6);
 </BaseLayout>
 
 <style>
+/* OFFER TICKER */
+.offer-ticker {
+  background: var(--gold);
+  overflow: hidden;
+  padding: 10px 0;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker-scroll 28s linear infinite;
+}
+.ticker-item {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  letter-spacing: 0.04em;
+  padding: 0 3rem;
+  flex-shrink: 0;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* HERO */
 .hero {
   position: relative;
@@ -280,7 +370,7 @@ const featuredWork = workData.slice(0, 6);
 .hero-viewer { position: absolute; inset: 0; left: 45%; }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, var(--navy-deep) 45%, rgba(10,26,48,0.7) 70%, rgba(10,26,48,0.2) 100%);
+  background: linear-gradient(90deg, var(--navy-deep) 45%, rgba(10,26,48,0.42) 70%, rgba(10,26,48,0.04) 100%);
 }
 .hero-content {
   position: relative; z-index: 2;

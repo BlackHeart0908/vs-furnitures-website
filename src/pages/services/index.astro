@@ -19,25 +19,25 @@ const services = [
     icon: '🛋️',
     name: 'Living Room Furniture',
     desc: 'TV units, entertainment centres, sofas, display shelving — built to your living room dimensions.',
-    href: '/services',
+    href: '/services/living-room',
   },
   {
     icon: '💼',
     name: 'Office Furniture',
     desc: 'Workstations, executive desks, reception counters, storage cabinets for homes and commercial offices.',
-    href: '/services',
+    href: '/services/office-furniture',
   },
   {
     icon: '🚪',
     name: 'Door & Window Frames',
     desc: 'Solid wood and engineered frames — measured, crafted, and fitted for durability.',
-    href: '/services',
+    href: '/services/door-window-frames',
   },
   {
     icon: '✨',
     name: 'False Ceiling & Wood Paneling',
     desc: 'POP, gypsum, and wood panel ceilings and wall features that transform the look of a room.',
-    href: '/services',
+    href: '/services/false-ceiling',
   },
   {
     icon: '🔧',
@@ -49,25 +49,35 @@ const services = [
     icon: '🪵',
     name: 'Custom Carpentry',
     desc: 'Anything in wood — from a single shelf to a built-in bookcase. If you can imagine it, we can build it.',
-    href: '/services',
+    href: '/services/custom-carpentry',
   },
   {
     icon: '📦',
     name: 'Furniture Assembly & Dismantling',
     desc: 'Safe flatpack assembly, dismantling for shifting, and refitting in your new home.',
-    href: '/services',
+    href: '/services/furniture-assembly',
   },
   {
     icon: '🏺',
     name: 'Old Furniture Restoration',
     desc: 'Re-polish, repair, and revive treasured old pieces — often cheaper than buying new.',
-    href: '/services/furniture-repair',
+    href: '/services/furniture-restoration',
   },
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"}
+  ]
+};
 ---
 <BaseLayout
   title="Furniture & Carpentry Services in Indore | VS Furnitures"
   description="Modular kitchens, wardrobes, living room furniture, office furniture, repairs & custom carpentry in Indore. VS Furnitures — 30+ years. Free site visit within 7 km."
+  additionalSchemas={[breadcrumbSchema]}
 >
   <section class="page-hero">
     <div class="container">

@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Living Room Furniture","item":"https://vsfurnitures.in/services/living-room"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Living Room Furniture",
+  "name": "Living Room Furniture in Indore",
+  "description": "Custom TV units, entertainment centres, sofas, display shelving and crockery cabinets in Indore. Built to your exact dimensions. VS Furnitures — 30+ years. Free site visit.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/living-room",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Contact us for quotation",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Living Room Furniture in Indore | TV Units, Sofas, Shelving | VS Furnitures"
+  description="Custom TV units, entertainment centres, sofas, display shelving and crockery cabinets in Indore. Built to your exact dimensions. VS Furnitures — 30+ years. Free site visit."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Living Room Furniture in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">TV units, display cabinets, sofas and shelving — designed for your room, built to exact dimensions. Contact us for the best quotation.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Free Estimate</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20living%20room%20furniture%20in%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="info-block">
+          <p class="eyebrow">TV Units</p>
+          <h2>Wall-mounted & floor-standing TV units</h2>
+          <div class="gold-line"></div>
+          <p>A TV unit is the focal point of any living room. We build wall-mounted floating units, floor-standing cabinets, and full entertainment walls — all made to your exact wall width and ceiling height so there are no gaps, no filler panels, and no standard-size compromises.</p>
+          <ul class="check-list mt">
+            <li>Wall-to-wall units for maximum impact</li>
+            <li>Cable management channels built in</li>
+            <li>Backlit niches and LED strip provision</li>
+            <li>Open shelves, closed cabinets, or a mix</li>
+            <li>Any finish — matte laminate, gloss acrylic, wood grain</li>
+          </ul>
+          <p class="price-note mt">Contact us for a free site visit and exact quotation.</p>
+        </div>
+        <div class="info-block">
+          <p class="eyebrow">Display & Shelving</p>
+          <h2>Crockery cabinets & display units</h2>
+          <div class="gold-line"></div>
+          <p>Open shelving systems for books, plants, and decor. Crockery cabinets with glass shutters that show off your collection while keeping it dust-free. Display units with built-in lighting. Every piece is designed around what you're putting in it.</p>
+          <ul class="check-list mt">
+            <li>Glass-shutter display cabinets</li>
+            <li>Open floating shelves</li>
+            <li>Built-in crockery units</li>
+            <li>Floor-to-ceiling bookcase walls</li>
+            <li>Bar cabinets with lockable sections</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sofa-section">
+    <div class="container">
+      <p class="eyebrow">Sofas & Seating</p>
+      <h2>Custom wooden-frame sofas & seating</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub">Ready-made sofas rarely fit an Indian living room perfectly. We build wooden-frame sofas, corner sofas, and divan seating in any dimension — then you choose the upholstery fabric and cushion thickness.</p>
+      <div class="grid-3 mt">
+        {[
+          { title: 'L-Shaped Corner Sofas', desc: 'Perfect for larger living rooms. Built to your exact corner dimensions so it fits flush.' },
+          { title: 'Classic 3+2 Seating', desc: 'Solid teak or hardwood frames, coil-spring base, your choice of fabric and cushion fill.' },
+          { title: 'Divan & Day Beds', desc: 'Low-platform divan seating or a single/double daybed — great for a reading corner or guest space.' },
+        ].map(item => (
+          <div class="feature-card">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section section texture-bg">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Living room furniture — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'How long does a TV unit take to build?', a: 'Most TV units take 7 to 12 days from measurement to installation. Larger entertainment wall units take 12 to 18 days.' },
+          { q: 'What size should a TV unit be?', a: 'The unit should ideally span the full width of the wall or at minimum be 1.5× the width of your TV screen. We measure your room and recommend the right dimensions.' },
+          { q: 'Can you match the finish to my existing furniture?', a: 'Yes — we have a wide range of laminate and acrylic finishes. Bring a photo of your existing furniture and we will find the closest match. Exact matching depends on the original material.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Ready to transform your living room?" sub="Call or WhatsApp for a free site visit — we measure, design, and give you an honest estimate." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.info-block { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.info-block p { color: var(--muted); line-height: 1.6; }
+.info-block h2 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+.mt { margin-top: 1rem; }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.check-list li { font-size: 0.9rem; color: var(--ink); font-weight: 500; }
+.check-list li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+.price-note { font-size: 0.9rem; color: var(--muted); }
+.price-note strong { color: var(--navy); }
+.sofa-section { background: var(--paper); }
+.section-sub { color: var(--muted); max-width: 640px; margin-bottom: 0; }
+.feature-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.feature-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.faq-section { background: var(--paper); }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 800px) { .content-grid { grid-template-columns: 1fr; } }
+</style>

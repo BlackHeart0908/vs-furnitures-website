@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Furniture Assembly & Dismantling","item":"https://vsfurnitures.in/services/furniture-assembly"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Furniture Assembly",
+  "name": "Furniture Assembly & Dismantling in Indore",
+  "description": "Professional furniture assembly, dismantling for home shifting and refitting in Indore. Flatpack furniture, IKEA-style assembly, safe dismantle and refit. Call 9827348796.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/furniture-assembly",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "₹500 – ₹5,000",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Furniture Assembly & Dismantling in Indore | Flatpack, Shifting | VS Furnitures"
+  description="Professional furniture assembly, dismantling for home shifting and refitting in Indore. Flatpack furniture, IKEA-style assembly, safe dismantle and refit. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Furniture Assembly &amp; Dismantling in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Shifting to a new home? Got flatpack furniture that needs assembling? We handle it properly — same-day service available. Call 9827348796.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Same-Day Service</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20furniture%20assembly%20or%20dismantling%20in%20Indore.%20Can%20you%20help%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid reveal">
+
+        <div class="service-block">
+          <span class="service-icon-lg">📦</span>
+          <h2>Flatpack & Imported Furniture Assembly</h2>
+          <div class="gold-line"></div>
+          <p>Bought furniture from an online store, a brand showroom, or brought it back from abroad? Flatpack assembly instructions are notoriously confusing, and mistakes at this stage damage the furniture permanently. Our carpenters have assembled hundreds of flatpack pieces — beds, wardrobes, dining sets, bookshelves, study tables, and more.</p>
+          <ul class="check-list mt">
+            <li>All brands — IKEA, Pepperfry, Amazon Basics, and more</li>
+            <li>Beds, wardrobes, dining tables, chairs, shelves</li>
+            <li>Correct tools — no stripped screws or damaged panels</li>
+            <li>Wall-mounting where required (TV units, shelves)</li>
+            <li>Assembly in 1 to 3 hours for most pieces</li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <span class="service-icon-lg">🚚</span>
+          <h2>Dismantling for Home Shifting</h2>
+          <div class="gold-line"></div>
+          <p>Moving to a new flat in Indore? Wardrobes, beds, large dining tables, and modular kitchen units cannot go through doorways assembled. We dismantle them carefully — labelling every part, bagging every screw — so nothing gets lost and reassembly at the new address is straightforward.</p>
+          <ul class="check-list mt">
+            <li>Careful dismantling — no scratches, no broken panels</li>
+            <li>All parts labelled and packed for the move</li>
+            <li>Available same-day or next-day for urgent shifts</li>
+            <li>Wardrobes, beds, dining sets, office furniture</li>
+            <li>Modular kitchen unit dismantling</li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <span class="service-icon-lg">🏠</span>
+          <h2>Reassembly & Refitting</h2>
+          <div class="gold-line"></div>
+          <p>After your shift, we come to your new address and reassemble everything in the correct rooms. We also adjust hinges, re-level pieces, and re-wall-mount shelves or TV units. Leave it to us — moving is stressful enough without a furniture puzzle at the end of it.</p>
+          <ul class="check-list mt">
+            <li>Reassembly at new address</li>
+            <li>Hinge and hardware adjustment</li>
+            <li>Re-levelling on new floors</li>
+            <li>Wall-mounting in new rooms</li>
+            <li>Full set-up so you can use the room immediately</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm review-highlight texture-bg">
+    <div class="container review-inner">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Called VS Furnitures for assembling imported bedroom furniture — two wardrobes and a bed frame. They arrived same day, completed everything in about 3 hours, and set up the room perfectly. Will definitely call them again for our next shift."</p>
+      <p class="reviewer">— Puja Tiwari, Rau, Indore</p>
+    </div>
+  </section>
+
+  <section class="faq-section section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Assembly & dismantling — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'Do you charge per piece or by the hour?', a: 'We price per job based on the number of pieces and complexity. Call or WhatsApp us with the list of furniture and we will give you a quick quote over the phone — usually within a few minutes.' },
+          { q: 'Can you handle same-day assembly?', a: 'Yes — for most assembly jobs we can come the same day if you call before noon. For dismantling before a home shift, we recommend booking 2 to 3 days in advance to ensure availability.' },
+          { q: 'Do you bring your own tools?', a: 'Yes — we bring a complete set of tools including drills, Allen keys, screwdrivers, rubber mallets, and wall-mounting equipment. You do not need to arrange anything.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need furniture assembled or dismantled?" sub="Call or WhatsApp — same-day service available for most assembly jobs in Indore." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.service-block { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+.service-icon-lg { font-size: 2.2rem; display: block; margin-bottom: 0.75rem; }
+.service-block h2 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+.service-block .gold-line { margin: 0.75rem 0 1rem; }
+.service-block p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.mt { margin-top: 1rem; }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.check-list li { font-size: 0.88rem; color: var(--ink); font-weight: 500; }
+.check-list li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+.review-highlight { background: var(--navy); text-align: center; }
+.review-inner { max-width: 640px; margin: 0 auto; }
+.review-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.review-text { color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.7; font-style: italic; margin-bottom: 1rem; }
+.reviewer { color: rgba(255,255,255,0.55); font-size: 0.85rem; font-weight: 600; }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 900px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+</style>

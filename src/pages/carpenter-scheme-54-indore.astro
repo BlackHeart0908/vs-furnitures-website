@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+
+const area = 'Scheme 54';
+const areaSlug = 'scheme-54';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Carpenter in Scheme 54","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+  ]
+};
+
+const localSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://vsfurnitures.in/#business",
+  "name": "VS Furnitures",
+  "url": "https://vsfurnitures.in",
+  "telephone": "+919827348796",
+  "areaServed": `${area}, Indore`,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Indore",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "452011",
+    "addressCountry": "IN"
+  }
+};
+
+const services = [
+  { name: 'Modular Kitchen', href: '/services/modular-kitchen' },
+  { name: 'Wardrobes & Bedroom', href: '/services/wardrobes-bedroom' },
+  { name: 'Living Room & TV Units', href: '/services/living-room' },
+  { name: 'Office Furniture', href: '/services/office-furniture' },
+  { name: 'Furniture Repair & Polishing', href: '/services/furniture-repair' },
+  { name: 'Custom Carpentry', href: '/services/custom-carpentry' },
+  { name: 'False Ceiling & Paneling', href: '/services/false-ceiling' },
+  { name: 'Furniture Assembly', href: '/services/furniture-assembly' },
+  { name: 'Old Furniture Restoration', href: '/services/furniture-restoration' },
+  { name: 'Door & Window Frames', href: '/services/door-window-frames' },
+];
+
+const reviews = [
+  {
+    name: 'Amit Tiwari', stars: 5, service: 'Full Home Furniture', area: 'Scheme 54',
+    text: 'We got our entire flat furnished — kitchen, two wardrobes, TV unit, and beds. One team handled everything. No hassle, no running around. Very satisfied.'
+  },
+  {
+    name: 'Anil Kumar', stars: 5, service: 'Modular Kitchen', area: 'Scheme 54',
+    text: 'U-shaped kitchen with tall units and a loft. The planning advice they gave was very practical. Materials used are of good quality. Overall great experience.'
+  },
+];
+---
+<BaseLayout
+  title="Carpenter in Scheme 54 Indore | VS Furnitures"
+  description="Carpenter in Scheme 54, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Scheme 54. Free site visit. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, localSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Scheme 54, Indore</p>
+      <h1>Carpenter in Scheme 54, Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">VS Furnitures has been serving Scheme 54 for 30+ years — modular kitchens, wardrobes, TV units, furniture repair, and custom carpentry. Free site visit. Call 9827348796.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call 9827348796</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Scheme%2054%2C%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <p class="eyebrow">What We Do in Scheme 54</p>
+      <h2>All carpentry and furniture services in Scheme 54</h2>
+      <div class="gold-line"></div>
+      <div class="services-grid reveal">
+        {services.map(s => (
+          <a href={s.href} class="service-card">
+            <span class="arrow">→</span>
+            <span>{s.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">From Scheme 54 Clients</p>
+      <h2>What Scheme 54 residents say</h2>
+      <div class="gold-line"></div>
+      <div class="reviews-grid reveal">
+        {reviews.map(r => (
+          <div class="review-card">
+            <div class="review-stars">{'★'.repeat(r.stars)}</div>
+            <p class="review-text">"{r.text}"</p>
+            <div class="review-footer">
+              <div class="reviewer-avatar">{r.name.charAt(0)}</div>
+              <div>
+                <p class="reviewer-name">{r.name}</p>
+                <p class="reviewer-meta">{r.area} · {r.service}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section area-section">
+    <div class="container area-inner">
+      <p class="eyebrow">Serving Scheme 54</p>
+      <h2>Your local carpenter in Scheme 54</h2>
+      <div class="gold-line"></div>
+      <p>Scheme 54 is a large, well-developed residential area in Indore with a good mix of government housing, independent houses, and newer apartment complexes. We have completed full home furnishing projects across Scheme 54 — from a complete kitchen and wardrobe fit-out for a newly purchased flat to individual repair jobs for older homes.</p>
+      <p class="mt">Scheme 54 homes vary significantly in kitchen size and layout. We visit first, measure the actual space, and recommend the most practical layout rather than a standard template. U-shaped and L-shaped kitchens are both common in this area, and we have built many of each.</p>
+      <div class="cta-inline mt">
+        <a href="tel:+919827348796" class="btn btn-primary">Call for Free Site Visit</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Scheme%2054%2C%20Indore." target="_blank" rel="noopener" class="btn btn-outline-dark">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need a carpenter in Scheme 54?" sub="Free site visit anywhere in Scheme 54, Indore. Call or WhatsApp — we respond fast." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.services-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.75rem; margin-top: 1.5rem; }
+.service-card { display: flex; align-items: center; gap: 0.5rem; background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); padding: 0.9rem 1rem; text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: border-color 0.2s, box-shadow 0.2s; }
+.service-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
+.arrow { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.reviews-section { background: var(--paper); }
+.reviews-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin-top: 1rem; }
+.review-card { background: var(--white); border: 1px solid rgba(16,37,66,0.07); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.75rem; }
+.review-stars { color: var(--gold); font-size: 0.95rem; }
+.review-text { font-size: 0.87rem; color: var(--ink); line-height: 1.6; flex: 1; font-style: italic; }
+.review-footer { display: flex; gap: 0.75rem; align-items: center; padding-top: 0.75rem; border-top: 1px solid rgba(16,37,66,0.06); }
+.reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: var(--font-head); font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.reviewer-name { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+.reviewer-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+.area-section { background: var(--white); }
+.area-inner { max-width: 760px; }
+.area-inner p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+.mt { margin-top: 1rem; }
+.cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } .reviews-grid { grid-template-columns: 1fr; } }
+</style>

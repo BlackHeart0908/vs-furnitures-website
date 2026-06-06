@@ -1,10 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Furniture Repair & Polishing","item":"https://vsfurnitures.in/services/furniture-repair"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Furniture Repair and Polishing",
+  "name": "Furniture Repair & Polishing in Indore",
+  "description": "Furniture repair, polishing, and restoration in Indore. Same-day repair available. 10% off your first repair. VS Furnitures — 30+ years. Call 9827348796.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/furniture-repair",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Contact us for quotation",
+    "availability": "https://schema.org/InStock"
+  }
+};
 ---
 <BaseLayout
   title="Furniture Repair & Polishing in Indore | VS Furnitures"
   description="Furniture repair, polishing, and restoration in Indore. Same-day repair available. 10% off your first repair. VS Furnitures — 30+ years. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -43,6 +71,41 @@ import CTABand from '../../components/CTABand.astro';
     </div>
   </section>
 
+  <!-- PRICING SECTION -->
+  <section class="section pricing-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">Pricing</p>
+      <h2>What Does Furniture Repair Cost in Indore?</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">Every repair is different — the cost depends on the damage, the material, and what needs fixing. Most repairs are far cheaper than replacing the piece.</p>
+      <p class="quote-cta reveal">WhatsApp a photo of the damage and we will give you a quick estimate — usually within the same day. No obligation.</p>
+      <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20furniture%20repair%20estimate." target="_blank" rel="noopener" class="btn btn-primary reveal">WhatsApp a Photo for Free Estimate</a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section faq-section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Furniture repair — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'How quickly can you do a repair?', a: 'Most repairs are done same day or next day. Call or WhatsApp with a photo for a quick estimate and we will confirm availability.' },
+          { q: 'Do you restore old and antique wooden furniture?', a: 'Yes — we clean, repair joints, strip old polish, and re-polish. Results look like new. Old solid teak and sheesham pieces especially respond well to restoration.' },
+        ].map(faq => (
+          <details class="faq-item reveal">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section-sm offer-banner">
     <div class="container offer-inner">
       <div class="offer-badge">Special Offer</div>
@@ -73,4 +136,22 @@ import CTABand from '../../components/CTABand.astro';
 .offer-inner h2 { color: var(--white); margin-bottom: 0.75rem; }
 .offer-inner p { color: rgba(255,255,255,0.7); }
 .mt { margin-top: 1.5rem; }
+.pricing-section { background: var(--paper); }
+.quote-cta { font-size: 1rem; color: var(--ink); line-height: 1.7; margin: 0.5rem 0 1.5rem; }
+.section-sub { color: var(--muted); max-width: 680px; margin-bottom: 1.5rem; }
+.price-table-wrap { overflow-x: auto; margin-bottom: 1rem; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.price-table th { background: var(--navy); color: var(--white); text-align: left; padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.price-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(16,37,66,0.08); color: var(--ink); }
+.price-table tr:last-child td { border-bottom: none; }
+.price-table tr:nth-child(even) td { background: rgba(16,37,66,0.02); }
+.price-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+.faq-section { background: var(--white); }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--paper); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 </style>

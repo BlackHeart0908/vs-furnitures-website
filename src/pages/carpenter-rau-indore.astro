@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+
+const area = 'Rau';
+const areaSlug = 'rau';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Carpenter in Rau","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+  ]
+};
+
+const localSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://vsfurnitures.in/#business",
+  "name": "VS Furnitures",
+  "url": "https://vsfurnitures.in",
+  "telephone": "+919827348796",
+  "areaServed": `${area}, Indore`,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Indore",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "452011",
+    "addressCountry": "IN"
+  }
+};
+
+const services = [
+  { name: 'Modular Kitchen', href: '/services/modular-kitchen' },
+  { name: 'Wardrobes & Bedroom', href: '/services/wardrobes-bedroom' },
+  { name: 'Living Room & TV Units', href: '/services/living-room' },
+  { name: 'Office Furniture', href: '/services/office-furniture' },
+  { name: 'Furniture Repair & Polishing', href: '/services/furniture-repair' },
+  { name: 'Custom Carpentry', href: '/services/custom-carpentry' },
+  { name: 'False Ceiling & Paneling', href: '/services/false-ceiling' },
+  { name: 'Furniture Assembly', href: '/services/furniture-assembly' },
+  { name: 'Old Furniture Restoration', href: '/services/furniture-restoration' },
+  { name: 'Door & Window Frames', href: '/services/door-window-frames' },
+];
+
+const reviews = [
+  {
+    name: 'Puja Tiwari', stars: 5, service: 'Furniture Assembly', area: 'Rau',
+    text: 'Bought imported flatpack furniture from a store and had no idea how to assemble it. They put everything together perfectly in 3 hours. Very helpful.'
+  },
+  {
+    name: 'Dinesh Sharma', stars: 5, service: 'Door & Window Frames', area: 'Rau',
+    text: 'Got wooden door frames for four rooms replaced. Precise fitting, good wood. They finished in two days without disturbing the rest of the house.'
+  },
+  {
+    name: 'Deepak Malviya', stars: 5, service: 'Office Furniture', area: 'Rau',
+    text: 'Got workstations and a reception counter made for my office on AB Road. Very professional work. They finished the whole thing in 12 days as promised.'
+  },
+];
+---
+<BaseLayout
+  title="Carpenter in Rau Indore | VS Furnitures"
+  description="Carpenter in Rau, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Rau. Free site visit. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, localSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Rau, Indore</p>
+      <h1>Carpenter in Rau, Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">VS Furnitures has been serving Rau for 30+ years — modular kitchens, wardrobes, door frames, furniture assembly, and custom carpentry. Free site visit. Call 9827348796.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call 9827348796</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Rau%2C%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <p class="eyebrow">What We Do in Rau</p>
+      <h2>All carpentry and furniture services in Rau</h2>
+      <div class="gold-line"></div>
+      <div class="services-grid reveal">
+        {services.map(s => (
+          <a href={s.href} class="service-card">
+            <span class="arrow">→</span>
+            <span>{s.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">From Rau Clients</p>
+      <h2>What Rau residents say</h2>
+      <div class="gold-line"></div>
+      <div class="reviews-grid reveal">
+        {reviews.map(r => (
+          <div class="review-card">
+            <div class="review-stars">{'★'.repeat(r.stars)}</div>
+            <p class="review-text">"{r.text}"</p>
+            <div class="review-footer">
+              <div class="reviewer-avatar">{r.name.charAt(0)}</div>
+              <div>
+                <p class="reviewer-name">{r.name}</p>
+                <p class="reviewer-meta">{r.area} · {r.service}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section area-section">
+    <div class="container area-inner">
+      <p class="eyebrow">Serving Rau</p>
+      <h2>Your local carpenter in Rau</h2>
+      <div class="gold-line"></div>
+      <p>Rau is one of Indore's fastest-growing suburban areas — a large number of new residential townships, plotted developments, and apartment projects have come up here in recent years. We serve Rau regularly, covering both new construction projects where clients are furnishing a home from scratch, and existing homes that need individual services like kitchen upgrades, wardrobe fitting, or door frame replacement.</p>
+      <p class="mt">New homes in Rau townships typically need complete furnishing — modular kitchen, wardrobes for 2 to 3 bedrooms, TV unit, and false ceiling. We handle all of this as a single project so you have one team, one timeline, and one warranty for everything.</p>
+      <div class="cta-inline mt">
+        <a href="tel:+919827348796" class="btn btn-primary">Call for Free Site Visit</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Rau%2C%20Indore." target="_blank" rel="noopener" class="btn btn-outline-dark">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need a carpenter in Rau?" sub="Free site visit anywhere in Rau, Indore. Call or WhatsApp — we respond fast." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.services-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.75rem; margin-top: 1.5rem; }
+.service-card { display: flex; align-items: center; gap: 0.5rem; background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); padding: 0.9rem 1rem; text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: border-color 0.2s, box-shadow 0.2s; }
+.service-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
+.arrow { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.reviews-section { background: var(--paper); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 1rem; }
+.review-card { background: var(--white); border: 1px solid rgba(16,37,66,0.07); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.75rem; }
+.review-stars { color: var(--gold); font-size: 0.95rem; }
+.review-text { font-size: 0.87rem; color: var(--ink); line-height: 1.6; flex: 1; font-style: italic; }
+.review-footer { display: flex; gap: 0.75rem; align-items: center; padding-top: 0.75rem; border-top: 1px solid rgba(16,37,66,0.06); }
+.reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: var(--font-head); font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.reviewer-name { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+.reviewer-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+.area-section { background: var(--white); }
+.area-inner { max-width: 760px; }
+.area-inner p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+.mt { margin-top: 1rem; }
+.cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } .reviews-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } .reviews-grid { grid-template-columns: 1fr; } }
+</style>

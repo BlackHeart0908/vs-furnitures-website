@@ -11,95 +11,76 @@ interface Props {
   ogImage?: string;
   canonical?: string;
   noindex?: boolean;
+  additionalSchemas?: object[];
 }
 
-const { title, description, ogImage = '/images/og-default.jpg', canonical, noindex = false } = Astro.props;
+const { title, description, ogImage = '/images/og-default.jpg', canonical, noindex = false, additionalSchemas = [] } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "FurnitureStore",
+  "@type": "LocalBusiness",
+  "@id": "https://vsfurnitures.in/#business",
   "name": "VS Furnitures",
+  "alternateName": "VS Furniture Contractor Indore",
+  "description": "Trusted carpenter and furniture contractor in Indore with 30+ years experience. Modular kitchens, wardrobes, repairs and custom carpentry. Free site visit within 7 km.",
   "url": "https://vsfurnitures.in",
   "telephone": "+919827348796",
-  "priceRange": "₹₹",
   "image": "https://vsfurnitures.in/images/og-default.jpg",
-  "description": "VS Furnitures — furniture contractor & custom carpentry serving all of Indore for 30+ years. Modular kitchens, wardrobes, furniture repair, and complete home interiors.",
+  "logo": "https://vsfurnitures.in/images/og-default.jpg",
+  "priceRange": "₹₹",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "foundingDate": "1990",
+  "areaServed": [
+    "Vijay Nagar, Indore", "Palasia, Indore", "Mahalaxmi Nagar, Indore",
+    "Tulsi Nagar, Indore", "Rajendra Nagar, Indore", "Nipaniya, Indore",
+    "Niranjanpur, Indore", "Annapurna, Indore", "Nanda Nagar, Indore",
+    "Scheme 54, Indore", "AB Road, Indore", "Rau, Indore",
+    "Bicholi, Indore", "MR-10, Indore", "Dewas Naka, Indore"
+  ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "House No. 1403, Ward No. 24, Near Karmachari Rajya Beema Hospital",
-    "addressLocality": "Nanda Nagar, Indore",
+    "addressLocality": "Indore",
     "addressRegion": "Madhya Pradesh",
     "postalCode": "452011",
     "addressCountry": "IN"
   },
-  "areaServed": [
-    "Vijay Nagar", "Palasia", "Mahalaxmi Nagar", "Tulsi Nagar", "Rajendra Nagar",
-    "Nipaniya", "Niranjanpur", "Omex City Phase 1 & 2", "Dewas Naka", "Talawali Chanda",
-    "County Walk", "Singapur Township", "Ansal Township", "Shiv Vatika",
-    "SS Infinitus", "Apollo DB City", "Annapurna", "Nanda Nagar",
-    "MR-10", "Scheme 54", "Old Palasia", "AB Road", "Indore"
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "09:00",
-      "closes": "20:00"
-    }
-  ],
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "name": "1-Year Written Warranty on all work"
-    },
-    {
-      "@type": "Offer",
-      "name": "Free site visit within 7 km"
-    }
-  ]
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you charge for a site visit?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No — site visits and inspections within 7 km are completely free." }
-    },
-    {
-      "@type": "Question",
-      "name": "Which areas of Indore do you cover?",
-      "acceptedAnswer": { "@type": "Answer", "text": "All of Indore — Vijay Nagar, Palasia, Mahalaxmi Nagar, Tulsi Nagar, Rajendra Nagar, Nipaniya, Niranjanpur, Omex City, Dewas Naka, Talawali Chanda, County Walk, Singapur Township, Ansal Township, Shiv Vatika, SS Infinitus, Apollo DB City, Annapurna, Nanda Nagar, MR-10, Scheme 54, Old Palasia, AB Road and more." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you have a showroom?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We work on-site across Indore. Just call or WhatsApp and we'll visit you for a free measurement." }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between With Material and Percentage Basis?",
-      "acceptedAnswer": { "@type": "Answer", "text": "With Material, we supply everything; on Percentage Basis, you arrange the material and we do the craftsmanship. Final pricing is discussed on a call or visit." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer any warranty?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — a 1-year written warranty on our work." }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does a project take?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Most furniture pieces take 7–15 days; full modular kitchens or wardrobes around 3–4 weeks." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you handle small repairs and polishing?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — repairs, polishing, restoration, and modifications. First repair gets 10% off." }
-    }
-  ]
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "22.7196",
+    "longitude": "75.8577"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "28",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Carpentry and Furniture Services",
+    "itemListElement": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Modular Kitchen","url":"https://vsfurnitures.in/services/modular-kitchen"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Wardrobes and Bedroom Furniture","url":"https://vsfurnitures.in/services/wardrobes-bedroom"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Furniture Repair and Polishing","url":"https://vsfurnitures.in/services/furniture-repair"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Office Furniture","url":"https://vsfurnitures.in/services/office-furniture"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Living Room Furniture","url":"https://vsfurnitures.in/services/living-room"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"False Ceiling and Wood Paneling","url":"https://vsfurnitures.in/services/false-ceiling"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Carpentry","url":"https://vsfurnitures.in/services/custom-carpentry"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Door and Window Frames","url":"https://vsfurnitures.in/services/door-window-frames"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Furniture Assembly and Dismantling","url":"https://vsfurnitures.in/services/furniture-assembly"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Old Furniture Restoration","url":"https://vsfurnitures.in/services/furniture-restoration"}}
+    ]
+  },
+  "sameAs": ["https://wa.me/919977250002"]
 };
 ---
 <!DOCTYPE html>
@@ -131,7 +112,9 @@ const faqSchema = {
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} is:inline />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
+    {additionalSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+    ))}
   </head>
   <body>
     <Header />

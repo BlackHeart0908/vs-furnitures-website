@@ -1,10 +1,61 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Wardrobes & Bedroom Furniture","item":"https://vsfurnitures.in/services/wardrobes-bedroom"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Wardrobes and Bedroom Furniture",
+  "name": "Wardrobes & Bedroom Furniture in Indore",
+  "description": "Custom wardrobes, beds, dressing tables and bedroom sets in Indore. Sliding and hinged wardrobes built to your room. 30+ years. Free site visit. Call 9827348796.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/wardrobes-bedroom",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Contact us for quotation",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a custom wardrobe cost in Indore?",
+      "acceptedAnswer": {"@type":"Answer","text":"Every wardrobe is custom-built to your space. Contact us for a free site visit and we will give you an exact quotation."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a wardrobe take to build?",
+      "acceptedAnswer": {"@type":"Answer","text":"10 to 15 days from measurement to installation."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you make floor-to-ceiling wardrobes?",
+      "acceptedAnswer": {"@type":"Answer","text":"Yes — all our wardrobes are built floor-to-ceiling for maximum storage."}
+    }
+  ]
+};
 ---
 <BaseLayout
   title="Wardrobes & Bedroom Furniture in Indore | VS Furnitures"
   description="Custom wardrobes, beds, dressing tables and bedroom sets in Indore. Sliding and hinged wardrobes built to your room. 30+ years. Free site visit. Call 9827348796."
+  ogImage="/images/og-wardrobes.jpg"
+  additionalSchemas={[breadcrumbSchema, serviceSchema, faqSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -52,6 +103,89 @@ import CTABand from '../../components/CTABand.astro';
     </div>
   </section>
 
+  <!-- SLIDING VS HINGED COMPARISON -->
+  <section class="section compare-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">Which Type is Right for You?</p>
+      <h2>Sliding vs Hinged Wardrobes — Compared</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">Both are great options — the right choice depends on your bedroom size, access preference, and budget. Here is the honest comparison.</p>
+      <div class="table-wrap reveal">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Sliding Wardrobe</th>
+              <th>Hinged Wardrobe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Space needed to open</td><td>None — doors slide</td><td>~2 feet clearance in front</td></tr>
+            <tr><td>Best for</td><td>Smaller bedrooms</td><td>Larger bedrooms</td></tr>
+            <tr><td>Internal access</td><td>One half at a time</td><td>Full view when open</td></tr>
+            <tr><td>Cost</td><td>Slightly higher</td><td>Slightly lower</td></tr>
+            <tr><td>Look</td><td>Modern, flush finish</td><td>Classic, traditional</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-note reveal">Not sure which to choose? We help you decide during the free site visit based on your bedroom size and how you like to use your wardrobe.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section inclusions-section">
+    <div class="container">
+      <p class="eyebrow">What's Included</p>
+      <h2>Everything in a VS Furnitures wardrobe</h2>
+      <div class="gold-line"></div>
+      <div class="inclusions-grid reveal">
+        <div class="inclusions-list">
+          <ul class="check-list-lg">
+            <li>Floor-to-ceiling wardrobes built to exact room height</li>
+            <li>Sliding door or hinged door — your choice</li>
+            <li>Mirror shutter option available</li>
+            <li>Internal shelves, drawers, hanging rails</li>
+            <li>Pull-out shoe rack and trouser rack</li>
+            <li>BWP plywood carcass — moisture resistant</li>
+            <li>Laminate or acrylic shutters in any colour</li>
+            <li>1-year written warranty on workmanship and hardware</li>
+          </ul>
+        </div>
+        <div class="pricing-summary">
+          <div class="price-badge">Get a Quotation</div>
+          <h3>Custom price for your space</h3>
+          <p>Every wardrobe is different — size, door type, finish, and internal fittings all affect the cost. We give you an exact quote after a free site visit.</p>
+          <p class="mt">Call or WhatsApp for a quick estimate over the phone — or book a free site visit and we will give you an exact quote.</p>
+          <a href="tel:+919827348796" class="btn btn-primary mt-lg">Call for Free Estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section faq-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Wardrobes — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'How much does a custom wardrobe cost in Indore?', a: 'Every wardrobe is custom-built to your space — size, door type, finish, and internal fittings all affect the cost. Contact us for a free site visit and we will give you an exact quotation.' },
+          { q: 'How long does a wardrobe take to build?', a: '10 to 15 days from measurement to installation. We confirm the delivery date before starting work.' },
+          { q: 'Do you make floor-to-ceiling wardrobes?', a: 'Yes — all our wardrobes are built floor-to-ceiling for maximum storage. We measure your exact ceiling height and build accordingly.' },
+        ].map(faq => (
+          <details class="faq-item reveal">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <CTABand heading="Want a wardrobe that fits perfectly?" sub="Call or WhatsApp for a free site visit and measurement." />
 </BaseLayout>
 
@@ -69,4 +203,33 @@ import CTABand from '../../components/CTABand.astro';
 .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
 .check-list li { font-size: 0.9rem; color: var(--ink); font-weight: 500; }
 .check-list li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+.compare-section { background: var(--paper); }
+.section-sub { color: var(--muted); max-width: 680px; margin-bottom: 1.5rem; }
+.table-wrap { overflow-x: auto; margin-bottom: 1rem; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.compare-table th { background: var(--navy); color: var(--white); text-align: left; padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.compare-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(16,37,66,0.08); color: var(--ink); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: rgba(16,37,66,0.02); }
+.compare-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }
+.inclusions-section { background: var(--white); }
+.inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.check-list-lg { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.check-list-lg li { font-size: 0.95rem; color: var(--ink); font-weight: 500; padding-left: 0.25rem; }
+.check-list-lg li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+.pricing-summary { background: var(--paper); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.price-badge { display: inline-block; background: var(--gold); color: var(--navy-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 3px; margin-bottom: 0.75rem; }
+.pricing-summary h3 { font-size: 1.8rem; color: var(--navy); margin-bottom: 0.75rem; }
+.pricing-summary p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+.mt { margin-top: 1rem; }
+.mt-lg { margin-top: 1.5rem; display: inline-block; }
+.faq-section { background: var(--paper); }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 700px) { .inclusions-grid { grid-template-columns: 1fr; } }
 </style>

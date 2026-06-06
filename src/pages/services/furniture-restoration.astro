@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Old Furniture Restoration","item":"https://vsfurnitures.in/services/furniture-restoration"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Furniture Restoration",
+  "name": "Old Furniture Restoration in Indore",
+  "description": "Old furniture restoration in Indore — repair joints, re-polish, revive antique and treasured wooden pieces. Often cheaper than buying new. VS Furnitures. Call 9827348796.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/furniture-restoration",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Contact us for quotation",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Old Furniture Restoration in Indore | Antique Wood Revival | VS Furnitures"
+  description="Old furniture restoration in Indore — repair joints, re-polish, revive antique and treasured wooden pieces. Often cheaper than buying new. VS Furnitures. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Old Furniture Restoration in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">That 20-year-old almirah, the grandmother's chair, the dining table with a cloudy polish — we restore them to look like new. Often far cheaper than buying a replacement. <strong>10% off your first restoration.</strong></p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Estimate</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20have%20old%20furniture%20that%20needs%20restoration%20in%20Indore.%20Can%20you%20help%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp a Photo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What Restoration Includes</p>
+      <h2>A full restoration, not just a coat of polish</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">Many people think restoration is just re-polishing. A proper restoration is a multi-step process — we fix the structure first, then the surface.</p>
+      <div class="grid-3 mt reveal">
+        {[
+          { step: '01', title: 'Deep Cleaning', desc: 'Years of wax, grime, and old polish is stripped back. We use the right solvents for each wood type so the surface is clean without damaging the grain.' },
+          { step: '02', title: 'Structural Repair', desc: 'Loose joints are re-glued and clamped. Broken sections are repaired or replaced with matching wood. The piece must be structurally sound before we finish it.' },
+          { step: '03', title: 'Surface Preparation', desc: 'Sanding through progressively finer grits opens the grain and removes all the old finish. This is what allows the new polish to penetrate properly and last.' },
+          { step: '04', title: 'Polish Application', desc: 'PU polish, NC polish, or traditional wax finish — we choose the right finish for the piece and apply it in multiple coats with sanding between each layer.' },
+          { step: '05', title: 'Hardware Replacement', desc: 'Old hinges, handles, and locks that are corroded or broken are replaced with matching hardware. The finish detail matters as much as the wood itself.' },
+          { step: '06', title: 'Final Inspection', desc: 'We check every joint, every surface, and every fitting before delivering the piece. If anything is not right, we fix it before it leaves the workshop.' },
+        ].map(item => (
+          <div class="step-card reveal">
+            <div class="step-num">{item.step}</div>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="before-after section texture-bg">
+    <div class="container">
+      <p class="eyebrow">What's Possible</p>
+      <h2>Old pieces that look antique-showpiece quality</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub mt reveal">The transformation is often dramatic. A wooden almirah that has been in the family for 20 years — faded polish, stiff drawers, corroded handles — can come back looking like a beautiful antique piece after restoration. The quality of old solid teak and sheesham furniture from that era is actually better than most new furniture, so restoration is genuinely the smarter choice.</p>
+      <div class="examples-grid mt reveal">
+        <div class="example-card">
+          <div class="example-icon">🪑</div>
+          <h3>Wooden Chairs</h3>
+          <p>Re-glued joints, stripped and re-polished. Four dining chairs typically take 2 to 3 days. Contact us for a quick estimate.</p>
+        </div>
+        <div class="example-card">
+          <div class="example-icon">🗄️</div>
+          <h3>Almirahs & Wardrobes</h3>
+          <p>Complete restoration — joints, drawers, handles, full re-polish. A large almirah takes 3 to 5 days. Contact us for a quick estimate.</p>
+        </div>
+        <div class="example-card">
+          <div class="example-icon">🛋️</div>
+          <h3>Sofas & Wooden Frames</h3>
+          <p>Frame repair, joint re-gluing, and finish restoration. Upholstery can be replaced as part of the same project if needed.</p>
+        </div>
+        <div class="example-card">
+          <div class="example-icon">🍽️</div>
+          <h3>Dining Tables</h3>
+          <p>Surface sanding, stain removal, and re-polishing restores a dining table completely. Old cloudy or scratched polish is stripped back and replaced with a fresh finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm review-block">
+    <div class="container reviews-inner">
+      <div class="review-item">
+        <div class="review-stars">★★★★★</div>
+        <p>"My grandfather's old teak almirah was in terrible shape — loose joints, peeling polish. VS Furnitures restored it completely. It now looks like a beautiful antique showpiece. I would never have guessed it was 40 years old."</p>
+        <span class="reviewer">— Suresh Yadav, Vijay Nagar, Indore</span>
+      </div>
+      <div class="review-item">
+        <div class="review-stars">★★★★★</div>
+        <p>"Had three old chairs and a coffee table restored. They came to collect, finished the work in 4 days, and delivered back home. The result was amazing — all four pieces look like new. Much better value than buying replacements."</p>
+        <span class="reviewer">— Anita Bose, Palasia, Indore</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer-section section-sm">
+    <div class="container offer-inner">
+      <div class="offer-badge">Special Offer</div>
+      <h2>10% Off Your First Restoration</h2>
+      <p>New to VS Furnitures? Get 10% off on your first furniture restoration or polishing job. Call or WhatsApp to book — share a photo and we will give you a quick estimate.</p>
+      <a href="tel:+919827348796" class="btn btn-gold mt">Call 9827348796</a>
+    </div>
+  </section>
+
+  <section class="faq-section section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Restoration — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'Is restoration cheaper than buying new furniture?', a: 'In most cases, yes — especially for solid teak or sheesham pieces. Restoration is significantly cheaper than buying new solid wood furniture of the same quality. WhatsApp us a photo and we will give you an honest comparison.' },
+          { q: 'Can all wood types be restored?', a: 'Most solid wood furniture — teak, sheesham, sal, mango wood — can be fully restored. MDF and particle board furniture cannot be restored the same way, though surface scratches and minor damage can be repaired.' },
+          { q: 'How long does restoration take?', a: 'A single chair takes 1 to 2 days. A full almirah takes 3 to 5 days. Multiple pieces for the same project are done together to save time. We give you a specific timeline when we see the piece.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Have a piece worth restoring?" sub="WhatsApp a photo and we will tell you honestly whether restoration is worth it — and how much it will cost." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.page-hero-sub strong { color: var(--gold-soft); }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.section-sub { color: var(--muted); max-width: 680px; }
+.mt { margin-top: 1.5rem; }
+.step-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.step-num { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+.step-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.step-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.before-after { background: var(--paper); }
+.examples-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+.example-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); text-align: center; }
+.example-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.example-card h3 { font-size: 0.95rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.example-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+.review-block { background: var(--navy); }
+.reviews-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.review-item { border-left: 3px solid var(--gold); padding-left: 1.25rem; }
+.review-stars { color: var(--gold); font-size: 0.95rem; margin-bottom: 0.5rem; }
+.review-item p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.65; font-style: italic; margin-bottom: 0.75rem; }
+.reviewer { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 600; }
+.offer-section { background: var(--navy-deep); text-align: center; }
+.offer-inner { max-width: 560px; margin: 0 auto; }
+.offer-badge { display: inline-block; background: var(--gold); color: var(--navy-deep); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 3px; margin-bottom: 1rem; }
+.offer-inner h2 { color: var(--white); margin-bottom: 0.75rem; }
+.offer-inner p { color: rgba(255,255,255,0.7); }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 900px) { .examples-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .examples-grid { grid-template-columns: 1fr; } .reviews-inner { grid-template-columns: 1fr; } }
+</style>

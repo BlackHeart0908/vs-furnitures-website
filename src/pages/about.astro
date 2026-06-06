@@ -1,10 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABand from '../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"About","item":"https://vsfurnitures.in/about"}
+  ]
+};
 ---
 <BaseLayout
   title="About VS Furnitures — 30+ Years of Carpentry in Indore"
   description="VS Furnitures is a family-run furniture contractor in Indore with 30+ years experience. Learn our story, how we work, and why hundreds of Indore families trust us."
+  additionalSchemas={[breadcrumbSchema]}
 >
   <section class="page-hero">
     <div class="container">

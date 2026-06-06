@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Custom Carpentry","item":"https://vsfurnitures.in/services/custom-carpentry"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Custom Carpentry",
+  "name": "Custom Carpentry in Indore",
+  "description": "Custom carpentry in Indore — bookshelves, pooja mandirs, display units, study desks, anything in wood. Made to your exact design and measurements. 30+ years. Free site visit.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/custom-carpentry",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "₹5,000 – ₹60,000",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Custom Carpentry in Indore | Made-to-Order Wood Furniture | VS Furnitures"
+  description="Custom carpentry in Indore — bookshelves, pooja mandirs, display units, study desks, anything in wood. Made to your exact design and measurements. 30+ years. Free site visit."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Custom Carpentry in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">If you can imagine it in wood, we can build it. Bookshelves, pooja mandirs, bar cabinets, study desks — made to your exact dimensions and design.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Free Estimate</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20custom%20carpentry%20in%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What We Build</p>
+      <h2>One-off and made-to-order wooden pieces</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">Every home has a piece that does not fit into a standard product category. That is exactly what we specialise in — wood furniture that fits your specific space, use, and style.</p>
+      <div class="grid-3 mt reveal">
+        {[
+          { icon: '📚', title: 'Bookshelves', desc: 'Wall-to-wall built-in bookshelves, floor-to-ceiling units, floating shelves. With or without doors. Any wood finish.' },
+          { icon: '🙏', title: 'Pooja Mandirs', desc: 'Traditional and contemporary pooja mandirs built to your design — from a simple single-unit to a full mandir room. With carving detail if required.' },
+          { icon: '🖥️', title: 'Study & Work Desks', desc: 'Custom study tables for children, L-shaped home office desks, built-in desks with shelving above. Any size, any finish.' },
+          { icon: '🍷', title: 'Bar Cabinets', desc: 'Dry bar units with glass holders, bottle storage, and serving top. Floating or floor-standing. A popular addition to living rooms and dining areas.' },
+          { icon: '🪞', title: 'Display Units', desc: 'Display units with glass shutters and built-in lighting. Crockery cabinets. Trophy and memorabilia cases. Built to exactly fit what you want to display.' },
+          { icon: '🛏️', title: 'Loft Beds & Storage Beds', desc: 'Loft beds for children with a study area below. Storage beds with drawers or a lift-up base. Built to exact mattress dimensions.' },
+        ].map(item => (
+          <div class="feature-card reveal">
+            <span class="feature-icon">{item.icon}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section how-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">How It Works</p>
+      <h2>From idea to finished piece</h2>
+      <div class="gold-line"></div>
+      <div class="steps-grid mt reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>You describe your idea</h3>
+          <p>A rough description, a photo reference from Pinterest, a sketch on paper — any starting point works. We have 30+ years of experience translating ideas into buildable designs.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Free site visit & measurement</h3>
+          <p>We visit your home, measure the exact space, and discuss materials and finish. We suggest any adjustments needed to make the piece practical and durable.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>We build to exact dimensions</h3>
+          <p>The piece is built in our workshop and delivered and installed at your home. No assembly required — it arrives finished and ready to use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section materials-section">
+    <div class="container">
+      <p class="eyebrow">Materials</p>
+      <h2>What goes into a custom piece</h2>
+      <div class="gold-line"></div>
+      <div class="grid-2 mt reveal">
+        <div class="mat-block">
+          <h3>Solid Wood</h3>
+          <p>Teak, sheesham (Indian rosewood), and pine are the most common solid wood choices for custom carpentry. Teak is the most durable and termite-resistant. Sheesham has a beautiful grain for decorative pieces. We source locally from Indore timber suppliers.</p>
+        </div>
+        <div class="mat-block">
+          <h3>Plywood (BWP/BWR)</h3>
+          <p>For most furniture carcasses and structural components, high-quality BWP or BWR plywood is the right choice — more dimensionally stable than solid wood, resistant to humidity, and stronger per unit cost. We use plywood with laminate or acrylic finish.</p>
+        </div>
+        <div class="mat-block">
+          <h3>MDF (Medium Density Fibreboard)</h3>
+          <p>MDF is ideal for painted surfaces and intricate routed detail — it takes paint and CNC carving beautifully. We use MDF for decorative panels, pooja mandir detailing, and any piece where a smooth painted finish is the priority.</p>
+        </div>
+        <div class="mat-block">
+          <h3>Engineered Wood</h3>
+          <p>Particle board and HDF (High Density Fibreboard) are cost-effective choices for storage units and shelving that will be laminate-finished. We use quality engineered wood with edge-banding for clean, durable results at a lower price point.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section section texture-bg">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Custom carpentry — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'Can you build from a photo reference?', a: 'Yes — share a photo from Pinterest, Instagram, or anywhere else. We will assess what is achievable, suggest materials, and quote accordingly. Exact replication depends on the materials and construction method used in the original.' },
+          { q: 'Do you do one-off single pieces?', a: 'Absolutely — a single bookshelf, a single desk, a single pooja mandir. There is no minimum project size. We have built everything from a small wall-mounted key holder to a complete home library.' },
+          { q: 'How long does custom work take?', a: 'Small pieces like a single shelf or desk take 5 to 10 days. More complex pieces like a built-in bookcase wall or a detailed pooja mandir take 15 to 25 days from measurement to installation.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Have a custom piece in mind?" sub="Call or WhatsApp with your idea — a photo, a sketch, or even just a description. We will make it." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.section-sub { color: var(--muted); max-width: 640px; }
+.mt { margin-top: 1.5rem; }
+.feature-card { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.feature-icon { font-size: 1.8rem; display: block; margin-bottom: 0.75rem; }
+.feature-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.how-section { background: var(--paper); }
+.steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.step { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.step-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; }
+.step h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.step p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+.mat-block { background: var(--white); border: 1px solid rgba(16,37,66,0.08); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.mat-block h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.mat-block p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 800px) { .steps-grid { grid-template-columns: 1fr; } }
+</style>

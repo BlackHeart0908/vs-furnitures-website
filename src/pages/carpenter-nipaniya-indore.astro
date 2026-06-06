@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABand from '../components/CTABand.astro';
+
+const area = 'Nipaniya';
+const areaSlug = 'nipaniya';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Carpenter in Nipaniya","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+  ]
+};
+
+const localSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://vsfurnitures.in/#business",
+  "name": "VS Furnitures",
+  "url": "https://vsfurnitures.in",
+  "telephone": "+919827348796",
+  "areaServed": `${area}, Indore`,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Indore",
+    "addressRegion": "Madhya Pradesh",
+    "postalCode": "452011",
+    "addressCountry": "IN"
+  }
+};
+
+const services = [
+  { name: 'Modular Kitchen', href: '/services/modular-kitchen' },
+  { name: 'Wardrobes & Bedroom', href: '/services/wardrobes-bedroom' },
+  { name: 'Living Room & TV Units', href: '/services/living-room' },
+  { name: 'Office Furniture', href: '/services/office-furniture' },
+  { name: 'Furniture Repair & Polishing', href: '/services/furniture-repair' },
+  { name: 'Custom Carpentry', href: '/services/custom-carpentry' },
+  { name: 'False Ceiling & Paneling', href: '/services/false-ceiling' },
+  { name: 'Furniture Assembly', href: '/services/furniture-assembly' },
+  { name: 'Old Furniture Restoration', href: '/services/furniture-restoration' },
+  { name: 'Door & Window Frames', href: '/services/door-window-frames' },
+];
+---
+<BaseLayout
+  title="Carpenter in Nipaniya Indore | VS Furnitures"
+  description="Carpenter in Nipaniya, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Nipaniya. Free site visit. Call 9827348796."
+  additionalSchemas={[breadcrumbSchema, localSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Nipaniya, Indore</p>
+      <h1>Carpenter in Nipaniya, Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">VS Furnitures serves Nipaniya for all carpentry and furniture needs — modular kitchens, wardrobes, TV units, repair, and custom work. Free site visit. Call 9827348796.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call 9827348796</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Nipaniya%2C%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <p class="eyebrow">What We Do in Nipaniya</p>
+      <h2>All carpentry and furniture services in Nipaniya</h2>
+      <div class="gold-line"></div>
+      <div class="services-grid reveal">
+        {services.map(s => (
+          <a href={s.href} class="service-card">
+            <span class="arrow">→</span>
+            <span>{s.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">Why VS Furnitures</p>
+      <h2>What makes us the right choice in Nipaniya</h2>
+      <div class="gold-line"></div>
+      <div class="why-grid reveal">
+        {[
+          { icon: '📋', title: '1-Year Written Warranty', body: 'Every project comes with a written warranty on workmanship and hardware. In writing, not just talk.' },
+          { icon: '🚗', title: 'Free Site Visit', body: 'We visit Nipaniya for free site visits — no charge, no obligation. We measure and share an honest estimate.' },
+          { icon: '⚡', title: 'Same-Day Repair', body: 'For furniture repairs in Nipaniya, we can often come the same day or next day.' },
+          { icon: '🔄', title: '30+ Years Experience', body: 'Over three decades of furniture and carpentry work across Indore, including Nipaniya.' },
+        ].map(w => (
+          <div class="why-card">
+            <span class="why-icon">{w.icon}</span>
+            <div>
+              <h3>{w.title}</h3>
+              <p>{w.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section area-section">
+    <div class="container area-inner">
+      <p class="eyebrow">Serving Nipaniya</p>
+      <h2>Your local carpenter in Nipaniya</h2>
+      <div class="gold-line"></div>
+      <p>Nipaniya is a growing residential area in Indore's western zone — a mix of independent houses, small apartment buildings, and newer housing developments. We regularly take on projects in Nipaniya and the surrounding areas, and our team can reach you quickly for a free measurement visit.</p>
+      <p class="mt">Whether you need a modular kitchen for a new home, a wardrobe for a bedroom, a TV unit for your living room, or a simple furniture repair, we handle everything. Call or WhatsApp to book your free site visit.</p>
+      <div class="cta-inline mt">
+        <a href="tel:+919827348796" class="btn btn-primary">Call for Free Site Visit</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20a%20carpenter%20in%20Nipaniya%2C%20Indore." target="_blank" rel="noopener" class="btn btn-outline-dark">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need a carpenter in Nipaniya?" sub="Free site visit anywhere in Nipaniya, Indore. Call or WhatsApp — we respond fast." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.services-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.75rem; margin-top: 1.5rem; }
+.service-card { display: flex; align-items: center; gap: 0.5rem; background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); padding: 0.9rem 1rem; text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: border-color 0.2s, box-shadow 0.2s; }
+.service-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
+.arrow { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.why-section { background: var(--paper); }
+.why-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin-top: 1rem; }
+.why-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+.why-icon { font-size: 1.5rem; flex-shrink: 0; }
+.why-card h3 { font-size: 0.95rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+.why-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.area-section { background: var(--white); }
+.area-inner { max-width: 760px; }
+.area-inner p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+.mt { margin-top: 1rem; }
+.cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+.btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+@media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } .why-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
+</style>

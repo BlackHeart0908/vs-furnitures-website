@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Services","item":"https://vsfurnitures.in/services"},
+    {"@type":"ListItem","position":3,"name":"Door & Window Frames","item":"https://vsfurnitures.in/services/door-window-frames"}
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Door and Window Frames",
+  "name": "Door & Window Frames in Indore",
+  "description": "Solid wood and engineered door frames and window frames in Indore. Precisely measured, crafted and fitted. New construction and replacement work. VS Furnitures — 30+ years.",
+  "provider": {"@id": "https://vsfurnitures.in/#business"},
+  "areaServed": "Indore, Madhya Pradesh",
+  "url": "https://vsfurnitures.in/services/door-window-frames",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "INR",
+    "priceRange": "Contact us for quotation",
+    "availability": "https://schema.org/InStock"
+  }
+};
+---
+<BaseLayout
+  title="Door & Window Frames in Indore | Wooden Frames | VS Furnitures"
+  description="Solid wood and engineered door frames and window frames in Indore. Precisely measured, crafted and fitted. New construction and replacement work. VS Furnitures — 30+ years."
+  additionalSchemas={[breadcrumbSchema, serviceSchema]}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Service</p>
+      <h1>Door &amp; Window Frames in Indore</h1>
+      <div class="gold-line"></div>
+      <p class="page-hero-sub">Solid wood and engineered frames — precisely measured, crafted, and fitted. New construction and old frame replacement. Contact us for the best quotation.</p>
+      <div class="hero-btns">
+        <a href="tel:+919827348796" class="btn btn-gold">Call for Free Estimate</a>
+        <a href="https://wa.me/919977250002?text=Hi%20VS%20Furnitures%2C%20I%20need%20door%20or%20window%20frames%20in%20Indore.%20Can%20I%20get%20a%20free%20site%20visit%3F" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2 reveal">
+        <div class="info-block">
+          <p class="eyebrow">Door Frames</p>
+          <h2>Measured and fitted to your opening</h2>
+          <div class="gold-line"></div>
+          <p>A poorly fitted door frame leaves gaps, warps over time, and creates draught and noise problems. We measure the opening precisely, cut and finish the frame in our workshop, and fit it on-site so the door hangs level and closes cleanly — every time.</p>
+          <h3 class="mt">Materials available:</h3>
+          <ul class="check-list mt-sm">
+            <li><strong>Teak:</strong> Most durable, termite-resistant, premium finish — long-term investment</li>
+            <li><strong>Sal wood:</strong> Strong, cost-effective, widely used across Indore homes</li>
+            <li><strong>Pine:</strong> Lighter option, good for interior doors in apartments</li>
+            <li><strong>Engineered wood frames:</strong> Warp-resistant, consistent size, lower cost</li>
+          </ul>
+          <p class="price-note mt">Contact us for a free site visit and exact quotation.</p>
+        </div>
+        <div class="info-block">
+          <p class="eyebrow">Window Frames</p>
+          <h2>New construction & replacement fitting</h2>
+          <div class="gold-line"></div>
+          <p>Old window frames in Indore homes often warp, split, or rot over time — especially on external walls exposed to sun and rain. We replace them cleanly without damaging the surrounding plaster or paintwork. For new construction, we work with your civil contractor and fit frames at the right stage of the build.</p>
+          <h3 class="mt">What we cover:</h3>
+          <ul class="check-list mt-sm">
+            <li>Single and double window frame replacement</li>
+            <li>Complete room or full flat frame replacement</li>
+            <li>New construction fitting — before plaster stage</li>
+            <li>Casement, sliding, and fixed window frames</li>
+            <li>Ventilator frames for kitchens and bathrooms</li>
+          </ul>
+          <p class="price-note mt">Contact us for a free site visit and exact quotation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-section texture-bg">
+    <div class="container">
+      <p class="eyebrow">Why It Matters</p>
+      <h2>Precision fitting makes the difference</h2>
+      <div class="gold-line"></div>
+      <p class="section-sub reveal">The quality of a door or window frame is invisible when done right — and very obvious when done wrong. Here is what we do that many others skip.</p>
+      <div class="grid-3 mt reveal">
+        {[
+          { title: 'Exact measurement first', desc: 'We measure the opening before cutting anything. A few millimetres of error means the door will not close properly or the frame will need packing — we eliminate this by measuring twice.' },
+          { title: 'Kiln-dried or treated wood', desc: 'Green wood warps. We use properly seasoned or kiln-dried timber for all frames to ensure they do not warp or shrink after fitting.' },
+          { title: 'Correct fitting depth', desc: 'The frame must sit flush with the finished wall surface. We account for plaster thickness and wall finish so the door or window sits level on both sides.' },
+        ].map(item => (
+          <div class="why-card">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm review-block">
+    <div class="container reviews-inner">
+      <div class="review-item">
+        <div class="review-stars">★★★★★</div>
+        <p>"Got all window frames replaced across our flat in Bicholi. VS Furnitures finished the job in 2 days without any mess. The new frames are a perfect fit — not a single gap."</p>
+        <span class="reviewer">— Kamlesh Gupta, Bicholi, Indore</span>
+      </div>
+      <div class="review-item">
+        <div class="review-stars">★★★★★</div>
+        <p>"Called them for 4 room door frames in our new house in Rau. They measured on day one and fitted everything on day three. Doors hang perfectly. Great work."</p>
+        <span class="reviewer">— Dinesh Sharma, Rau, Indore</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section section">
+    <div class="container">
+      <p class="eyebrow">FAQ</p>
+      <h2>Door & window frames — common questions</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        {[
+          { q: 'Can you replace old frames without damaging the surrounding wall?', a: 'Yes — this is a common concern and we take care of it. We use chisels and the right tools to remove the old frame cleanly. Minor plaster touching up around the frame is normal and we guide you on this — or arrange it if needed.' },
+          { q: 'How long does fitting take per frame?', a: 'A single door frame takes 2 to 4 hours to fit correctly including levelling and securing. A full flat with 4 rooms and 8 to 10 windows typically takes 2 to 3 days with our crew.' },
+          { q: 'Do you supply the wood or should I buy it?', a: 'Both options work. We can source and supply the timber as part of the project (With Material basis), or you can purchase it yourself and we provide the craftsmanship (Percentage Basis). We recommend letting us source it as we know quality suppliers in Indore.' },
+        ].map(faq => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{faq.q}</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <p class="faq-a">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need door or window frames in Indore?" sub="Call or WhatsApp for a free site visit and measurement. New construction or replacement — we handle both." />
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-deep); padding: 96px 0 64px; text-align: center; }
+.page-hero h1 { color: var(--white); font-size: clamp(2rem,5vw,3rem); }
+.page-hero .eyebrow { display: block; }
+.page-hero .gold-line { margin: 1rem auto 1.5rem; }
+.page-hero-sub { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.info-block { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.info-block p { color: var(--muted); line-height: 1.6; }
+.info-block h2 { font-size: 1.35rem; margin-bottom: 0.25rem; }
+.info-block h3 { font-size: 0.95rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); }
+.mt { margin-top: 1rem; }
+.mt-sm { margin-top: 0.5rem; }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.check-list li { font-size: 0.88rem; color: var(--ink); line-height: 1.5; }
+.check-list li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+.price-note { font-size: 0.88rem; color: var(--muted); }
+.price-note strong { color: var(--navy); }
+.why-section { background: var(--paper); }
+.section-sub { color: var(--muted); max-width: 640px; }
+.why-card { background: var(--white); padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+.why-card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+.why-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+.review-block { background: var(--navy); }
+.reviews-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.review-item { border-left: 3px solid var(--gold); padding-left: 1.25rem; }
+.review-stars { color: var(--gold); font-size: 0.95rem; margin-bottom: 0.5rem; }
+.review-item p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.65; font-style: italic; margin-bottom: 0.75rem; }
+.reviewer { font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 600; }
+.faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.08); border-radius: var(--radius); overflow: hidden; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.25rem; font-weight: 600; font-size: 0.95rem; cursor: pointer; list-style: none; color: var(--navy); }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-icon { font-size: 1.25rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-a { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 800px) { .reviews-inner { grid-template-columns: 1fr; } }
+</style>

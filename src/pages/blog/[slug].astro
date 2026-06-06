@@ -13,10 +13,31 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://vsfurnitures.in/blog"},
+    {"@type":"ListItem","position":3,"name":post.data.title,"item":`https://vsfurnitures.in/blog/${post.id}`}
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.pubDate.toISOString(),
+  "publisher": {"@id": "https://vsfurnitures.in/#business"},
+  "url": `https://vsfurnitures.in/blog/${post.id}`
+};
 ---
 <BaseLayout
   title={`${post.data.title} | VS Furnitures Blog`}
   description={post.data.description}
+  additionalSchemas={[breadcrumbSchema, articleSchema]}
 >
   <article class="blog-post">
     <header class="post-hero">

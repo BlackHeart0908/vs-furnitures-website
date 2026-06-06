@@ -14,8 +14,8 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="VS Furnitures home">
-      <span class="logo-vs">VS</span>
-      <span class="logo-name">Furnitures</span>
+      <img src="/images/logo-header.png" alt="VS Furnitures logo" class="logo-img" />
+      <span class="logo-name">VS Furnitures</span>
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
@@ -70,24 +70,26 @@ const path = Astro.url.pathname;
 }
 .logo {
   display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo-vs {
-  font-family: var(--font-head);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.03em;
+.logo-img {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
 }
 .logo-name {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--white);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 .main-nav {
   display: flex;

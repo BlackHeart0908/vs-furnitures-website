@@ -10,26 +10,50 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
-    {"@type":"ListItem","position":2,"name":"Carpenter in Nanda Nagar","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+    {"@type":"ListItem","position":2,"name":"Carpenter in Nanda Nagar","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore/`}
   ]
 };
 
 const localSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://vsfurnitures.in/#business",
-  "name": "VS Furnitures",
+  "@type": "Carpenter",
+  "@id": `https://vsfurnitures.in/carpenter-${areaSlug}-indore/#carpenter`,
+  "name": "Carpenter. Vs Furniture & Home Solution",
   "url": "https://vsfurnitures.in",
   "telephone": "+919827348796",
-  "areaServed": `${area}, Indore`,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "House No. 1403, Ward No. 24, Near Karmachari Rajya Beema Hospital",
-    "addressLocality": "Nanda Nagar, Indore",
-    "addressRegion": "Madhya Pradesh",
-    "postalCode": "452011",
-    "addressCountry": "IN"
-  }
+  "areaServed": `${area}, Indore`
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Since you are based in Nanda Nagar, how quickly can you send someone for a repair?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We are based right here in Nanda Nagar near ESIC Hospital. For repair calls we can often reach you the same day. For new projects we typically schedule a free site visit within a few hours of your call — no waiting days for a contractor to travel from another part of Indore."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve the lanes near ESIC Hospital, Nanda Nagar Square, and Nanda Nagar Chowk?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we have worked in virtually every lane of Nanda Nagar over the past 30 years. ESIC Hospital area, Nanda Nagar Square, Gali No. 24, and the surrounding colonies are all within our immediate service area."}
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most popular services in Nanda Nagar?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Modular kitchens, wardrobes, false ceilings, and furniture repair and polishing are our most requested services in Nanda Nagar. We also get frequent calls for custom carpentry — pooja mandirs, display units, study desks, and TV panels."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you do emergency furniture repairs in Nanda Nagar?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — for urgent repairs like broken hinges, drawers that won't close, or joint repairs, we can usually come the same day since we are based locally. Call 9827348796 and explain the urgency — we prioritise local Nanda Nagar calls."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the starting price for a modular kitchen in Nanda Nagar?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Our modular kitchens start from ₹39,990. A complete L-shaped kitchen for a standard Nanda Nagar flat typically costs ₹1,20,000 to ₹3,00,000 depending on size and materials. We will give you an exact price after the free site visit — no hidden charges."}
+    }
+  ]
 };
 
 const services = [
@@ -59,7 +83,7 @@ const reviews = [
 <BaseLayout
   title="Carpenter in Nanda Nagar Indore | VS Furnitures"
   description="Carpenter in Nanda Nagar, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Nanda Nagar. Free site visit. Call 9827348796."
-  additionalSchemas={[breadcrumbSchema, localSchema]}
+  additionalSchemas={[breadcrumbSchema, localSchema, faqSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -127,6 +151,36 @@ const reviews = [
     </div>
   </section>
 
+  <section class="section faq-section">
+    <div class="container faq-inner">
+      <p class="eyebrow">Common Questions</p>
+      <h2>FAQs — Carpenter in Nanda Nagar</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Since you are based in Nanda Nagar, how quickly can you send someone for a repair?</summary>
+          <p>We are based right here in Nanda Nagar near ESIC Hospital. For repair calls we can often reach you the same day. For new projects we typically schedule a free site visit within a few hours of your call — no waiting days for a contractor to travel from another part of Indore.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you serve the lanes near ESIC Hospital, Nanda Nagar Square, and Nanda Nagar Chowk?</summary>
+          <p>Yes — we have worked in virtually every lane of Nanda Nagar over the past 30 years. ESIC Hospital area, Nanda Nagar Square, Gali No. 24, and the surrounding colonies are all within our immediate service area.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What are the most popular services in Nanda Nagar?</summary>
+          <p>Modular kitchens, wardrobes, false ceilings, and furniture repair and polishing are our most requested services in Nanda Nagar. We also get frequent calls for custom carpentry — pooja mandirs, display units, study desks, and TV panels.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you do emergency furniture repairs in Nanda Nagar?</summary>
+          <p>Yes — for urgent repairs like broken hinges, drawers that won't close, or joint repairs, we can usually come the same day since we are based locally. Call 9827348796 and explain the urgency — we prioritise local Nanda Nagar calls.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is the starting price for a modular kitchen in Nanda Nagar?</summary>
+          <p>Our modular kitchens start from ₹39,990. A complete L-shaped kitchen for a standard Nanda Nagar flat typically costs ₹1,20,000 to ₹3,00,000 depending on size and materials. We will give you an exact price after the free site visit — no hidden charges.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <CTABand heading="Need a carpenter in Nanda Nagar?" sub="We are based right here in Nanda Nagar — fastest response in the area. Call or WhatsApp now." />
 </BaseLayout>
 
@@ -157,6 +211,14 @@ const reviews = [
 .cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+.faq-section { background: var(--paper); }
+.faq-inner { max-width: 760px; }
+.faq-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); overflow: hidden; }
+.faq-item summary { padding: 1rem 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.25rem; font-weight: 400; flex-shrink: 0; margin-left: 1rem; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin: 0; }
 @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } .reviews-grid { grid-template-columns: 1fr; } }
 </style>

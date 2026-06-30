@@ -10,25 +10,50 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
-    {"@type":"ListItem","position":2,"name":"Carpenter in Scheme 54","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+    {"@type":"ListItem","position":2,"name":"Carpenter in Scheme 54","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore/`}
   ]
 };
 
 const localSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://vsfurnitures.in/#business",
-  "name": "VS Furnitures",
+  "@type": "Carpenter",
+  "@id": `https://vsfurnitures.in/carpenter-${areaSlug}-indore/#carpenter`,
+  "name": "Carpenter. Vs Furniture & Home Solution",
   "url": "https://vsfurnitures.in",
   "telephone": "+919827348796",
-  "areaServed": `${area}, Indore`,
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Indore",
-    "addressRegion": "Madhya Pradesh",
-    "postalCode": "452011",
-    "addressCountry": "IN"
-  }
+  "areaServed": `${area}, Indore`
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are you familiar with the standard flat layouts in Scheme 54 apartments?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we have built furniture in many Scheme 54 residential buildings and are familiar with the typical flat layouts. Most Scheme 54 apartments have standard kitchen and bedroom dimensions, and we know how to design modular kitchens and wardrobes that make the most of the available space."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you handle the complete furnishing of a new flat in Scheme 54?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we do complete home fit-outs in Scheme 54. This includes the modular kitchen, all bedroom wardrobes, TV unit, study desk, false ceiling, and any custom pieces. One team, one point of contact, no running around coordinating different contractors."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work in society buildings and high-rise apartments in Scheme 54?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we regularly work in society buildings including lift-access high-rises. We carry tools and materials efficiently and are accustomed to working within society entry and timing rules."}
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you reach Scheme 54 for a free site visit?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We can usually visit Scheme 54 within 24 hours of your call for a free site visit. For urgent repair calls, we try to come the same day. Call 9827348796 or WhatsApp to check availability."}
+    },
+    {
+      "@type": "Question",
+      "name": "What are the most popular furniture services in Scheme 54?",
+      "acceptedAnswer": {"@type": "Answer", "text": "In Scheme 54, modular kitchens and floor-to-ceiling wardrobes are most frequently requested, especially for new flat fit-outs. We also get regular calls for TV units, study desks, false ceilings, and complete bedroom furniture packages."}
+    }
+  ]
 };
 
 const services = [
@@ -58,7 +83,7 @@ const reviews = [
 <BaseLayout
   title="Carpenter in Scheme 54 Indore | VS Furnitures"
   description="Carpenter in Scheme 54, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Scheme 54. Free site visit. Call 9827348796."
-  additionalSchemas={[breadcrumbSchema, localSchema]}
+  additionalSchemas={[breadcrumbSchema, localSchema, faqSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -126,6 +151,36 @@ const reviews = [
     </div>
   </section>
 
+  <section class="section faq-section">
+    <div class="container faq-inner">
+      <p class="eyebrow">Common Questions</p>
+      <h2>FAQs — Carpenter in Scheme 54</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Are you familiar with the standard flat layouts in Scheme 54 apartments?</summary>
+          <p>Yes — we have built furniture in many Scheme 54 residential buildings and are familiar with the typical flat layouts. Most Scheme 54 apartments have standard kitchen and bedroom dimensions, and we know how to design modular kitchens and wardrobes that make the most of the available space.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you handle the complete furnishing of a new flat in Scheme 54?</summary>
+          <p>Yes — we do complete home fit-outs in Scheme 54. This includes the modular kitchen, all bedroom wardrobes, TV unit, study desk, false ceiling, and any custom pieces. One team, one point of contact, no running around coordinating different contractors.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work in society buildings and high-rise apartments in Scheme 54?</summary>
+          <p>Yes — we regularly work in society buildings including lift-access high-rises. We carry tools and materials efficiently and are accustomed to working within society entry and timing rules.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How quickly can you reach Scheme 54 for a free site visit?</summary>
+          <p>We can usually visit Scheme 54 within 24 hours of your call for a free site visit. For urgent repair calls, we try to come the same day. Call 9827348796 or WhatsApp to check availability.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What are the most popular furniture services in Scheme 54?</summary>
+          <p>In Scheme 54, modular kitchens and floor-to-ceiling wardrobes are most frequently requested, especially for new flat fit-outs. We also get regular calls for TV units, study desks, false ceilings, and complete bedroom furniture packages.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <CTABand heading="Need a carpenter in Scheme 54?" sub="Free site visit anywhere in Scheme 54, Indore. Call or WhatsApp — we respond fast." />
 </BaseLayout>
 
@@ -156,6 +211,14 @@ const reviews = [
 .cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+.faq-section { background: var(--paper); }
+.faq-inner { max-width: 760px; }
+.faq-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); overflow: hidden; }
+.faq-item summary { padding: 1rem 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.25rem; font-weight: 400; flex-shrink: 0; margin-left: 1rem; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin: 0; }
 @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } .reviews-grid { grid-template-columns: 1fr; } }
 </style>

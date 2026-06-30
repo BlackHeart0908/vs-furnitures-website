@@ -25,7 +25,7 @@ const year = new Date().getFullYear();
           WhatsApp: 9977250002
         </a>
       </div>
-      <p class="footer-hours">Mon–Sat &nbsp;·&nbsp; 9:00 AM – 8:00 PM</p>
+      <p class="footer-hours">Mon–Sun &nbsp;·&nbsp; 9:00 AM – 8:00 PM</p>
     </div>
 
     <div class="footer-col">
@@ -47,7 +47,17 @@ const year = new Date().getFullYear();
 
     <div class="footer-col">
       <h4 class="footer-heading">Areas We Serve</h4>
-      <p class="footer-areas">Vijay Nagar · Palasia · Mahalaxmi Nagar · Tulsi Nagar · Rajendra Nagar · Nipaniya · Niranjanpur · Omex City · Dewas Naka · Talawali Chanda · County Walk · Singapur Township · Ansal Township · Shiv Vatika · SS Infinitus · Apollo DB City · Annapurna · Nanda Nagar · MR-10 · Scheme 54 · Old Palasia · AB Road</p>
+      <div class="footer-areas">
+        <a href="/carpenter-vijay-nagar-indore" class="footer-area-link">Vijay Nagar</a>
+        <a href="/carpenter-palasia-indore" class="footer-area-link">Palasia</a>
+        <a href="/carpenter-nipaniya-indore" class="footer-area-link">Nipaniya</a>
+        <a href="/carpenter-annapurna-indore" class="footer-area-link">Annapurna</a>
+        <a href="/carpenter-nanda-nagar-indore" class="footer-area-link">Nanda Nagar</a>
+        <a href="/carpenter-scheme-54-indore" class="footer-area-link">Scheme 54</a>
+        <a href="/carpenter-ab-road-indore" class="footer-area-link">AB Road</a>
+        <a href="/carpenter-rau-indore" class="footer-area-link">Rau</a>
+        <span class="footer-area-plain">Mahalaxmi Nagar · Tulsi Nagar · Rajendra Nagar · Niranjanpur · Omex City · Dewas Naka · MR-10</span>
+      </div>
     </div>
   </div>
 
@@ -106,7 +116,10 @@ const year = new Date().getFullYear();
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 .footer-col a { font-size: 0.88rem; color: rgba(255,255,255,0.7); transition: color 0.15s; }
 .footer-col a:hover { color: var(--white); }
-.footer-areas { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+.footer-areas { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; align-items: center; }
+.footer-area-link { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 40px; padding: 0.2rem 0.7rem; text-decoration: none; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+.footer-area-link:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.footer-area-plain { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 1.25rem 0;

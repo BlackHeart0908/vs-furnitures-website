@@ -15,14 +15,14 @@ interface Props {
 }
 
 const { title, description, ogImage = '/images/og-default.jpg', canonical, noindex = false, additionalSchemas = [] } = Astro.props;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).href.replace(/\/?$/, '/');
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://vsfurnitures.in/#business",
-  "name": "VS Furnitures",
-  "alternateName": "VS Furniture Contractor Indore",
+  "name": "Carpenter. Vs Furniture & Home Solution",
+  "alternateName": "VS Furnitures",
   "description": "Trusted carpenter and furniture contractor in Indore with 30+ years experience. Modular kitchens, wardrobes, repairs and custom carpentry. Free site visit within 7 km.",
   "url": "https://vsfurnitures.in",
   "telephone": "+919827348796",
@@ -41,6 +41,7 @@ const localBusinessSchema = {
   ],
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "House No 1403, Gali No-24, Near ESIC Hospital, Nanda Nagar",
     "addressLocality": "Indore",
     "addressRegion": "Madhya Pradesh",
     "postalCode": "452011",
@@ -48,12 +49,12 @@ const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "22.7196",
-    "longitude": "75.8577"
+    "latitude": 22.7441,
+    "longitude": 75.8794
   },
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
     "opens": "09:00",
     "closes": "20:00"
   }],
@@ -80,7 +81,45 @@ const localBusinessSchema = {
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Old Furniture Restoration","url":"https://vsfurnitures.in/services/furniture-restoration"}}
     ]
   },
-  "sameAs": ["https://wa.me/919977250002"]
+  "sameAs": [
+    "https://wa.me/919977250002",
+    "https://share.google/Fb5KKCaiH0zbqdL1a"
+  ]
+};
+
+const carpenterSchema = {
+  "@context": "https://schema.org",
+  "@type": "Carpenter",
+  "name": "Carpenter. Vs Furniture & Home Solution",
+  "image": "https://vsfurnitures.in/images/logo-header.png",
+  "@id": "https://vsfurnitures.in/#carpenter",
+  "url": "https://vsfurnitures.in",
+  "telephone": "+919827348796",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "House No 1403, Gali No-24, Near ESIC Hospital, Nanda Nagar",
+    "addressLocality": "Indore",
+    "addressRegion": "MP",
+    "postalCode": "452011",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 22.7441,
+    "longitude": 75.8794
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "sameAs": [
+    "https://share.google/Fb5KKCaiH0zbqdL1a"
+  ]
 };
 ---
 <!DOCTYPE html>
@@ -113,6 +152,7 @@ const localBusinessSchema = {
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(carpenterSchema)} is:inline />
     {additionalSchemas.map(schema => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
     ))}

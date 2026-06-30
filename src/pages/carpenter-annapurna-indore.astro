@@ -10,25 +10,50 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type":"ListItem","position":1,"name":"Home","item":"https://vsfurnitures.in"},
-    {"@type":"ListItem","position":2,"name":"Carpenter in Annapurna","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore`}
+    {"@type":"ListItem","position":2,"name":"Carpenter in Annapurna","item":`https://vsfurnitures.in/carpenter-${areaSlug}-indore/`}
   ]
 };
 
 const localSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://vsfurnitures.in/#business",
-  "name": "VS Furnitures",
+  "@type": "Carpenter",
+  "@id": `https://vsfurnitures.in/carpenter-${areaSlug}-indore/#carpenter`,
+  "name": "Carpenter. Vs Furniture & Home Solution",
   "url": "https://vsfurnitures.in",
   "telephone": "+919827348796",
-  "areaServed": `${area}, Indore`,
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Indore",
-    "addressRegion": "Madhya Pradesh",
-    "postalCode": "452011",
-    "addressCountry": "IN"
-  }
+  "areaServed": `${area}, Indore`
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which parts of Annapurna do you cover?",
+      "acceptedAnswer": {"@type": "Answer", "text": "We cover all of Annapurna including Annapurna Road, Saikripa Colony, Annapurna Chowk, and neighbouring areas like Lasudia Mori and Rajendra Nagar. Free site visit is available across the entire area."}
+    },
+    {
+      "@type": "Question",
+      "name": "What type of homes do you typically work in in Annapurna?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Annapurna has a good mix of older independent houses and newer apartment buildings. We work in both — fitting new modular kitchens and wardrobes in new apartments, and also restoring and upgrading older furniture in independent homes."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a modular kitchen take to complete in Annapurna?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A standard modular kitchen in Annapurna takes approximately 3 to 4 weeks from the free site visit to final installation. This includes design finalisation, fabrication, and fitting. We give you a firm timeline upfront before starting."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build custom office furniture for small businesses in Annapurna?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — we regularly build office workstations, reception counters, storage cabinets, and conference tables for small offices and home offices in Annapurna. All work is built to your exact office dimensions and finished to a professional standard."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you restore or repair older wooden furniture in Annapurna homes?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — furniture restoration and repair is a service we offer across Annapurna. Whether it is a vintage almirah, an old dining table, loose joints, broken shutters, or dull polish, we assess the piece and restore it. First repair gets 10% off."}
+    }
+  ]
 };
 
 const services = [
@@ -58,7 +83,7 @@ const reviews = [
 <BaseLayout
   title="Carpenter in Annapurna Indore | VS Furnitures"
   description="Carpenter in Annapurna, Indore — VS Furnitures. Modular kitchens, wardrobes, furniture repair and custom carpentry. 30+ years serving Annapurna. Free site visit. Call 9827348796."
-  additionalSchemas={[breadcrumbSchema, localSchema]}
+  additionalSchemas={[breadcrumbSchema, localSchema, faqSchema]}
 >
   <section class="page-hero">
     <div class="container">
@@ -126,6 +151,36 @@ const reviews = [
     </div>
   </section>
 
+  <section class="section faq-section">
+    <div class="container faq-inner">
+      <p class="eyebrow">Common Questions</p>
+      <h2>FAQs — Carpenter in Annapurna</h2>
+      <div class="gold-line"></div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Which parts of Annapurna do you cover?</summary>
+          <p>We cover all of Annapurna including Annapurna Road, Saikripa Colony, Annapurna Chowk, and neighbouring areas like Lasudia Mori and Rajendra Nagar. Free site visit is available across the entire area.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What type of homes do you typically work in in Annapurna?</summary>
+          <p>Annapurna has a good mix of older independent houses and newer apartment buildings. We work in both — fitting new modular kitchens and wardrobes in new apartments, and also restoring and upgrading older furniture in independent homes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does a modular kitchen take to complete in Annapurna?</summary>
+          <p>A standard modular kitchen in Annapurna takes approximately 3 to 4 weeks from the free site visit to final installation. This includes design finalisation, fabrication, and fitting. We give you a firm timeline upfront before starting.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you build custom office furniture for small businesses in Annapurna?</summary>
+          <p>Yes — we regularly build office workstations, reception counters, storage cabinets, and conference tables for small offices and home offices in Annapurna. All work is built to your exact office dimensions and finished to a professional standard.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you restore or repair older wooden furniture in Annapurna homes?</summary>
+          <p>Yes — furniture restoration and repair is a service we offer across Annapurna. Whether it is a vintage almirah, an old dining table, loose joints, broken shutters, or dull polish, we assess the piece and restore it. First repair gets 10% off.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <CTABand heading="Need a carpenter in Annapurna?" sub="Free site visit anywhere in Annapurna, Indore. Call or WhatsApp — we respond fast." />
 </BaseLayout>
 
@@ -156,6 +211,14 @@ const reviews = [
 .cta-inline { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-outline-dark { background: transparent; border: 2px solid var(--navy); color: var(--navy); padding: 0.75rem 1.75rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+.faq-section { background: var(--paper); }
+.faq-inner { max-width: 760px; }
+.faq-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item { background: var(--white); border: 1px solid rgba(16,37,66,0.1); border-radius: var(--radius); overflow: hidden; }
+.faq-item summary { padding: 1rem 1.25rem; font-weight: 700; font-size: 0.95rem; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.25rem; font-weight: 400; flex-shrink: 0; margin-left: 1rem; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding: 0 1.25rem 1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin: 0; }
 @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 600px) { .services-grid { grid-template-columns: repeat(2,1fr); } .reviews-grid { grid-template-columns: 1fr; } }
 </style>

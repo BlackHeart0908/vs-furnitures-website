@@ -1,0 +1,11 @@
+Options -Indexes
+RewriteEngine On
+
+# www → non-www (HTTPS forced in the same hop)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+
+# HTTP → HTTPS (handles direct Apache SSL + CDN/proxy via X-Forwarded-Proto)
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

@@ -7,13 +7,6 @@
     "text": "Got our modular kitchen done from VS Furnitures. Quality of ply and fittings is excellent. Soft-close shutters still working perfectly after 2 years. Highly recommend."
   },
   {
-    "name": "Priya Gupta",
-    "area": "Palasia",
-    "stars": 5,
-    "service": "Wardrobe",
-    "text": "Needed a floor-to-ceiling wardrobe in our bedroom. They measured, suggested the best layout, and delivered on time. Very clean finish. Will use them again."
-  },
-  {
     "name": "Amit Tiwari",
     "area": "Scheme 54",
     "stars": 5,
@@ -42,13 +35,6 @@
     "text": "Best modular kitchen experience. They came for a free site visit, suggested a nice L-shaped layout for our small kitchen, and executed it perfectly. Very happy."
   },
   {
-    "name": "Rajesh Patel",
-    "area": "Nanda Nagar",
-    "stars": 5,
-    "service": "Custom Carpentry",
-    "text": "Wanted a custom bookshelf with a study desk for my son's room. They made exactly what I described. Good wood quality and neat joinery. Will definitely call again."
-  },
-  {
     "name": "Kavita Joshi",
     "area": "Bhawarkua",
     "stars": 5,
@@ -63,102 +49,11 @@
     "text": "Got false ceiling and wood paneling done for my living room. The room looks completely transformed. Clean work, no mess left behind."
   },
   {
-    "name": "Pooja Dubey",
-    "area": "Old Palasia",
-    "stars": 5,
-    "service": "Furniture Assembly",
-    "text": "We shifted homes and needed all furniture dismantled and reassembled at the new place. They were on time, careful with everything, and put it all back perfectly."
-  },
-  {
     "name": "Suresh Yadav",
     "area": "Vijay Nagar",
     "stars": 5,
     "service": "Furniture Restoration",
     "text": "My grandfather's old wooden almirah was in bad shape. They restored it beautifully — repaired the joints, polished it, and it looks like an antique showpiece now."
-  },
-  {
-    "name": "Meera Soni",
-    "area": "Palasia",
-    "stars": 5,
-    "service": "Modular Kitchen",
-    "text": "Third time using VS Furnitures. First my kitchen, then my sister's, and now my mother's. Every time the quality and service is the same — excellent."
-  },
-  {
-    "name": "Rohit Rathore",
-    "area": "AB Road",
-    "stars": 5,
-    "service": "Living Room Furniture",
-    "text": "Got a custom TV unit and wall shelving made for my living room. Very different from the standard stuff you see. Exactly the design I wanted."
-  },
-  {
-    "name": "Shweta Mehta",
-    "area": "Bicholi",
-    "stars": 5,
-    "service": "Wardrobe",
-    "text": "Sliding wardrobe with mirror shutters — looks premium. The build quality is solid and the tracks are smooth. Very happy with the outcome."
-  },
-  {
-    "name": "Dinesh Sharma",
-    "area": "Rau",
-    "stars": 5,
-    "service": "Door & Window Frames",
-    "text": "Got wooden door frames for four rooms replaced. Precise fitting, good wood. They finished in two days without disturbing the rest of the house."
-  },
-  {
-    "name": "Rashmi Pathak",
-    "area": "Sudama Nagar",
-    "stars": 5,
-    "service": "Furniture Repair",
-    "text": "Dining chair joints were loose and one leg was cracked. They fixed everything in one visit. Very reasonable charges. Would recommend for any small repairs too."
-  },
-  {
-    "name": "Anil Kumar",
-    "area": "Scheme 54",
-    "stars": 5,
-    "service": "Modular Kitchen",
-    "text": "U-shaped kitchen with tall units and a loft. The planning advice they gave was very practical. Materials used are of good quality. Overall great experience."
-  },
-  {
-    "name": "Sarita Trivedi",
-    "area": "Nanda Nagar",
-    "stars": 5,
-    "service": "False Ceiling",
-    "text": "POP false ceiling with lighting cutouts in bedroom and living room. Very clean execution. The crew was disciplined and cleaned up everything before leaving."
-  },
-  {
-    "name": "Mohit Srivastava",
-    "area": "Annapurna",
-    "stars": 5,
-    "service": "Office Furniture",
-    "text": "Got 6 workstations and a conference table made for our small office. Everything built to size, within budget, and delivered before the deadline. Very professional."
-  },
-  {
-    "name": "Geeta Agrawal",
-    "area": "Vijay Nagar",
-    "stars": 5,
-    "service": "Custom Carpentry",
-    "text": "Wanted a pooja mandir and a display unit for the hall. Both came out beautifully. The detailing on the mandir was especially nice. Very skilled craftsmen."
-  },
-  {
-    "name": "Sanjay Chouhan",
-    "area": "Old Palasia",
-    "stars": 5,
-    "service": "Full Home Furniture",
-    "text": "New flat, full furnishing from scratch. Kitchen, wardrobes, beds, TV unit — everything from VS Furnitures. Took about 5 weeks total. Very happy with the end result."
-  },
-  {
-    "name": "Anita Bose",
-    "area": "MR-10",
-    "stars": 5,
-    "service": "Furniture Restoration",
-    "text": "Had 3 old wooden chairs and a coffee table restored. The polish job is excellent. You cannot tell they are 15 years old. Great service at a fair price."
-  },
-  {
-    "name": "Prakash Dubey",
-    "area": "Bhawarkua",
-    "stars": 5,
-    "service": "Bedroom Set",
-    "text": "Got beds with hydraulic storage for both bedrooms. Very well made. Kids can easily access the storage. Build quality is sturdy. No complaints at all."
   },
   {
     "name": "Lalita Verma",
@@ -168,31 +63,10 @@
     "text": "The free site visit was very helpful. They suggested changes to my original plan that saved space and money. Kitchen turned out better than I imagined."
   },
   {
-    "name": "Hemant Jain",
-    "area": "AB Road",
-    "stars": 5,
-    "service": "Living Room Furniture",
-    "text": "Entertainment unit with back-lit shelves and a side cabinet. Looks stunning in the evening. The backlit effect was their idea and it really elevates the room."
-  },
-  {
-    "name": "Puja Tiwari",
-    "area": "Rau",
+    "name": "Pooja Dubey",
+    "area": "Old Palasia",
     "stars": 5,
     "service": "Furniture Assembly",
-    "text": "Bought imported flatpack furniture from a store and had no idea how to assemble it. They put everything together perfectly in 3 hours. Very helpful."
-  },
-  {
-    "name": "Kamlesh Gupta",
-    "area": "Bicholi",
-    "stars": 5,
-    "service": "Door & Window Frames",
-    "text": "New construction — all wooden window frames and door frames by VS Furnitures. Measurements were perfect, fitting was solid. No gaps anywhere."
-  },
-  {
-    "name": "Rinku Yadav",
-    "area": "Sudama Nagar",
-    "stars": 5,
-    "service": "Wardrobe",
-    "text": "Hinged 4-door wardrobe with internal fittings — drawers, shelves, and a pull-out shoe rack. Exactly what we asked for. Very satisfied."
+    "text": "We shifted homes and needed all furniture dismantled and reassembled at the new place. They were on time, careful with everything, and put it all back perfectly."
   }
 ]

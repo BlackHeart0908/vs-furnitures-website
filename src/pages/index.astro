@@ -5,7 +5,8 @@ import FurnitureViewer from '../components/FurnitureViewer';
 import workData from '../data/work.json';
 import reviewsData from '../data/reviews.json';
 
-const reviews = reviewsData;
+const reviewsFirst = reviewsData.slice(0, 5);
+const reviewsMore  = reviewsData.slice(5);
 
 const services = [
   { icon: '🍳', name: 'Modular Kitchen', desc: 'Soft-close, durable, built to your space.', href: '/services/modular-kitchen' },
@@ -273,11 +274,9 @@ const faqSchema = {
       <h2>Trusted by hundreds of Indore families</h2>
       <div class="gold-line"></div>
       <div class="reviews-grid reveal">
-        {reviews.map(r => (
+        {reviewsFirst.map(r => (
           <div class="review-card">
-            <div class="review-stars">
-              {'★'.repeat(r.stars)}
-            </div>
+            <div class="review-stars">{'★'.repeat(r.stars)}</div>
             <p class="review-text">"{r.text}"</p>
             <div class="review-footer">
               <div class="reviewer-avatar">{r.name.charAt(0)}</div>
@@ -288,6 +287,28 @@ const faqSchema = {
             </div>
           </div>
         ))}
+      </div>
+      <div class="reviews-more-toggle">
+        <button class="btn-reviews-more" id="reviews-toggle" aria-expanded="false" aria-controls="reviews-more">
+          Read 5 more reviews ↓
+        </button>
+      </div>
+      <div class="reviews-more-outer" id="reviews-more" aria-hidden="true">
+        <div class="reviews-grid reviews-grid-more">
+          {reviewsMore.map(r => (
+            <div class="review-card review-card-more">
+              <div class="review-stars">{'★'.repeat(r.stars)}</div>
+              <p class="review-text">"{r.text}"</p>
+              <div class="review-footer">
+                <div class="reviewer-avatar">{r.name.charAt(0)}</div>
+                <div>
+                  <p class="reviewer-name">{r.name}</p>
+                  <p class="reviewer-meta">{r.area} · {r.service}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -376,6 +397,41 @@ const faqSchema = {
   </section>
 
   <CTABand heading="Get a free site visit anywhere in Indore." sub="No charge, no obligation. We come to you, measure, and share an honest estimate." />
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn   = document.getElementById('reviews-toggle');
+    var outer = document.getElementById('reviews-more');
+    if (!btn || !outer) return;
+
+    btn.addEventListener('click', function () {
+      // measure full content height while still collapsed
+      var targetH = outer.scrollHeight;
+
+      // slide open
+      outer.style.transition = 'height 0.38s cubic-bezier(0.25,0.46,0.45,0.94)';
+      outer.style.height = targetH + 'px';
+
+      // bounce-in each card with small stagger
+      var cards = outer.querySelectorAll('.review-card-more');
+      cards.forEach(function (card, i) {
+        card.style.animationDelay = (0.05 + i * 0.06) + 's';
+        card.classList.add('is-bouncing');
+      });
+
+      // once slide finishes, let height be fluid again
+      outer.addEventListener('transitionend', function () {
+        outer.style.height = 'auto';
+        outer.style.transition = '';
+      }, { once: true });
+
+      outer.setAttribute('aria-hidden', 'false');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = '✓ All 10 reviews shown';
+      btn.disabled = true;
+    });
+  });
+  </script>
 
 </BaseLayout>
 
@@ -518,7 +574,7 @@ const faqSchema = {
 .reviews-section { background: var(--paper); }
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-top: 0.5rem;
 }
@@ -551,9 +607,84 @@ const faqSchema = {
 }
 .reviewer-name { font-size: 0.85rem; font-weight: 700; color: var(--navy); }
 .reviewer-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
-@media (max-width: 1100px) { .reviews-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 750px)  { .reviews-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 480px)  { .reviews-grid { grid-template-columns: 1fr; } }
+
+/* show-more toggle */
+.reviews-more-toggle { text-align: center; margin-top: 2rem; }
+.btn-reviews-more {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.7rem 2.2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.btn-reviews-more:hover:not(:disabled) { background: var(--gold); color: var(--navy-deep); }
+.btn-reviews-more:disabled { opacity: 0.5; cursor: default; }
+
+/* expandable more container */
+.reviews-more-outer { height: 0; overflow: hidden; }
+.reviews-grid-more { padding-top: 1.25rem; padding-bottom: 0.25rem; }
+
+/* hidden cards start invisible; animation fills both ways */
+.review-card-more { opacity: 0; }
+.review-card-more.is-bouncing {
+  animation-duration: 0.95s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+.review-card-more:nth-child(1).is-bouncing { animation-name: bIn1; }
+.review-card-more:nth-child(2).is-bouncing { animation-name: bIn2; }
+.review-card-more:nth-child(3).is-bouncing { animation-name: bIn3; }
+.review-card-more:nth-child(4).is-bouncing { animation-name: bIn4; }
+.review-card-more:nth-child(5).is-bouncing { animation-name: bIn5; }
+
+@keyframes bIn1 {
+  0%   { transform: translateY(-20px) translateX(-4px); opacity: 0; }
+  50%  { transform: translateY(7px) translateX(1px);   opacity: 1; }
+  68%  { transform: translateY(-7px) translateX(-2px); }
+  82%  { transform: translateY(3px)  translateX(0);    }
+  92%  { transform: translateY(-2px);                  }
+  100% { transform: translateY(0)    translateX(0);    opacity: 1; }
+}
+@keyframes bIn2 {
+  0%   { transform: translateY(-20px) translateX(4px);  opacity: 0; }
+  50%  { transform: translateY(7px)  translateX(-1px);  opacity: 1; }
+  68%  { transform: translateY(-7px) translateX(2px);   }
+  82%  { transform: translateY(3px)  translateX(0);     }
+  92%  { transform: translateY(-2px);                   }
+  100% { transform: translateY(0)    translateX(0);     opacity: 1; }
+}
+@keyframes bIn3 {
+  0%   { transform: translateY(-20px);  opacity: 0; }
+  50%  { transform: translateY(8px);    opacity: 1; }
+  68%  { transform: translateY(-7px);   }
+  82%  { transform: translateY(3px);    }
+  92%  { transform: translateY(-2px);   }
+  100% { transform: translateY(0);      opacity: 1; }
+}
+@keyframes bIn4 {
+  0%   { transform: translateY(-20px) translateX(3px);  opacity: 0; }
+  50%  { transform: translateY(7px)  translateX(-2px);  opacity: 1; }
+  68%  { transform: translateY(-7px) translateX(1px);   }
+  82%  { transform: translateY(3px)  translateX(0);     }
+  92%  { transform: translateY(-2px);                   }
+  100% { transform: translateY(0)    translateX(0);     opacity: 1; }
+}
+@keyframes bIn5 {
+  0%   { transform: translateY(-20px) translateX(-3px); opacity: 0; }
+  50%  { transform: translateY(7px)  translateX(2px);   opacity: 1; }
+  68%  { transform: translateY(-7px) translateX(-1px);  }
+  82%  { transform: translateY(3px)  translateX(0);     }
+  92%  { transform: translateY(-2px);                   }
+  100% { transform: translateY(0)    translateX(0);     opacity: 1; }
+}
 
 /* FAQ */
 .faq-list { max-width: 760px; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }

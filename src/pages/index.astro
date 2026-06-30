@@ -334,6 +334,27 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- MAP -->
+  <section class="section-sm map-section">
+    <div class="container">
+      <p class="eyebrow">Our Location</p>
+      <h2>Based in Nanda Nagar, Indore</h2>
+      <div class="gold-line"></div>
+      <div class="map-wrap reveal">
+        <iframe
+          title="Carpenter. Vs Furniture & Home Solution — Nanda Nagar, Indore"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.127454644361!2d75.87291777372995!3d22.745401058348516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdde7e9f9a6b%3A0x675cdfdf3871f201!2sCarpenter.%20Vs%20Furniture%20%26%20Home%20Solution!5e0!3m2!1sen!2sin!4v1782846801099!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="section faq-section texture-bg">
     <div class="container">
@@ -487,6 +508,11 @@ const faqSchema = {
 .area-tag-link { border-color: var(--gold); color: var(--navy); transition: background 0.15s, color 0.15s; }
 .area-tag-link:hover { background: var(--gold); color: var(--white); }
 @media (max-width: 700px) { .areas-inner { flex-direction: column; gap: 1.5rem; } }
+
+/* MAP */
+.map-section { background: var(--white); }
+.map-wrap { height: 380px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid rgba(16,37,66,0.08); margin-top: 1.5rem; }
+@media (max-width: 600px) { .map-wrap { height: 260px; } }
 
 /* REVIEWS */
 .reviews-section { background: var(--paper); }

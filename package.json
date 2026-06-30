@@ -25,7 +25,6 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
-    "playwright": "^1.60.0",
     "wrangler": "^4.95.0"
   },
   "overrides": {

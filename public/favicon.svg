@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380">
+<circle cx="190" cy="190" r="160" fill="#14294A"/>
+<circle cx="190" cy="190" r="160" fill="none" stroke="#C2A24A" stroke-width="4"/>
+<circle cx="190" cy="190" r="138" fill="none" stroke="#C2A24A" stroke-width="1.5" opacity="0.7"/>
+<rect x="183" y="92" width="14" height="14" transform="rotate(45 190 99)" fill="#C2A24A"/>
+<text x="190" y="225" font-family="EB Garamond, Georgia, serif" font-weight="700" font-size="120" fill="#C2A24A" text-anchor="middle">VS</text>
+<rect x="150" y="248" width="80" height="2" fill="#C2A24A"/>
+<text x="190" y="282" font-family="EB Garamond, Georgia, serif" font-size="26" fill="#F6F1E7" text-anchor="middle" letter-spacing="6">FURNITURES</text>
+<text x="190" y="312" font-family="EB Garamond, Georgia, serif" font-size="15" fill="#D8BE73" text-anchor="middle" letter-spacing="4">· INDORE ·</text>
+</svg>
